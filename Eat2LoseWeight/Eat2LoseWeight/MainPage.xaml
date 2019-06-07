@@ -2,13 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Eat2LoseWeight"
-             x:Class="Eat2LoseWeight.MainPage">
-
+             x:Class="Eat2LoseWeight.MainPage"
+             xmlns:fab="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#3F51B5</Color>
+            <Color x:Key="PrimaryDark">#1A237E</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <StackLayout>
         <!-- Place new controls here -->
         <Label Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+        <fab:FloatingActionButtonView 
+            ImageName="ic_accessibility_new.png"
+            ColorNormal="{StaticResource Primary}"
+            ColorPressed="{StaticResource PrimaryDark}"
+            HorizontalOptions="End" />
     </StackLayout>
 
 </ContentPage>
