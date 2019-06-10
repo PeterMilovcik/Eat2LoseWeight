@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Eat2LoseWeight.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Color x:Key="PrimaryDark">#205374</Color>
+            <Color x:Key="Primary">#27A09E</Color>
+            <Color x:Key="Accent">#30CE88</Color>
+            <Color x:Key="SecondaryDark">#7DE393</Color>
+            <Color x:Key="Secondary">#D3F5CE</Color>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
