@@ -5,8 +5,32 @@
              BackgroundColor="{StaticResource Secondary}"
              Title="Add weight">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="TODO" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Entry 
+                Grid.Row="1" Grid.Column="1"
+                Placeholder="weight" PlaceholderColor="{StaticResource Primary}" 
+                TextColor="{StaticResource PrimaryDark}"
+                HorizontalOptions="CenterAndExpand" 
+                HorizontalTextAlignment="Center" 
+                FontSize="Large" Keyboard="Numeric" />
+            <Button
+                Grid.Row="1" Grid.Column="2"
+                Text="Ok"
+                TextColor="{StaticResource Secondary}"
+                BackgroundColor="{StaticResource Primary}"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                HeightRequest="40" WidthRequest="50" CornerRadius="20" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
