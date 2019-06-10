@@ -16,7 +16,8 @@
             ColorNormal="{StaticResource PrimaryDark}"
             ColorPressed="{StaticResource Primary}"
             ColorRipple="{StaticResource Primary}"
-            HorizontalOptions="End" />
+            HorizontalOptions="End"
+            Command="{Binding AddWeightCommand}" />
     </StackLayout>
 
 </ContentPage>
