@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Eat2LoseWeight
@@ -31,15 +32,18 @@ namespace Eat2LoseWeight
         {
             if (CanSubmit())
             {
-                SaveToDatabase(Weight);
+                await SaveToDatabaseAsync(Weight);
                 await Navigation.PopAsync();
             }
         }
 
-        private void SaveToDatabase(double weight)
-        {
-            // Coming soon...
-        }
+        private async Task SaveToDatabaseAsync(double weight) =>
+            await App.Database.SaveWeightRecordAsync(
+                new WeightRecord
+                {
+                    Value = weight,
+                    MeasuredAt = DateTime.Now
+                });
 
         private bool CanSubmit() => Weight > 0;
     }
