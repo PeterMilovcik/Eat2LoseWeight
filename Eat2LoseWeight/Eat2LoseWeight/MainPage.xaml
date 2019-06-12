@@ -18,6 +18,12 @@
             ColorRipple="{StaticResource Primary}"
             HorizontalOptions="End"
             Command="{Binding AddWeightCommand}" />
+        <fab:FloatingActionButtonView 
+            ImageName="ic_fastfood.png"
+            ColorNormal="{StaticResource PrimaryDark}"
+            ColorPressed="{StaticResource Primary}"
+            ColorRipple="{StaticResource Primary}"
+            HorizontalOptions="End" />
     </StackLayout>
 
 </ContentPage>

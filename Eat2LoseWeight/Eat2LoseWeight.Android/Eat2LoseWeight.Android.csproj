@@ -99,5 +99,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_accessibility_new.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_fastfood.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
