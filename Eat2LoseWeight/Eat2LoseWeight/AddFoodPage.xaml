@@ -12,6 +12,16 @@
                 Text="{Binding SearchText}"
                 TextColor="{StaticResource PrimaryDark}"
                 SearchCommand="{Binding AddItemCommand}" />
+            <StackLayout Orientation="Horizontal">
+                <DatePicker 
+                    Date="{Binding Date}"
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="{StaticResource PrimaryDark}" />
+                <TimePicker 
+                    Time="{Binding Time}"
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="{StaticResource PrimaryDark}" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
