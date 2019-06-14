@@ -12,6 +12,7 @@ namespace Eat2LoseWeight
         {
             Connection = new SQLiteAsyncConnection(dbPath);
             Connection.CreateTableAsync<WeightRecord>().Wait();
+            Connection.CreateTableAsync<Item>().Wait();
         }
 
         public Task<List<WeightRecord>> GetWeightRecordsAsync() =>
@@ -19,5 +20,11 @@ namespace Eat2LoseWeight
 
         public Task<int> SaveWeightRecordAsync(WeightRecord weightRecord) =>
             Connection.InsertAsync(weightRecord);
+
+        public Task<List<Item>> GetItemsAsync() =>
+            Connection.Table<Item>().ToListAsync();
+
+        public Task<int> SaveItemAsync(Item item) =>
+            Connection.InsertAsync(item);
     }
 }

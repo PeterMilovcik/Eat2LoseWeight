@@ -1,20 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Eat2LoseWeight
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddFoodPage : ContentPage
-	{
-		public AddFoodPage ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AddFoodPage : ContentPage
+    {
+        private AddItemViewModel ViewModel { get; }
+
+        public AddFoodPage()
+        {
+            InitializeComponent();
+            ViewModel = new AddItemViewModel();
+            BindingContext = ViewModel;
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await ViewModel.LoadAsync();
+        }
+    }
 }

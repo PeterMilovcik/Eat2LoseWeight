@@ -6,9 +6,12 @@
              Title="Add food or drink">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="TODO"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <SearchBar 
+                Placeholder="Find or add new item"
+                PlaceholderColor="{StaticResource Accent}"
+                Text="{Binding SearchText}"
+                TextColor="{StaticResource PrimaryDark}"
+                SearchCommand="{Binding AddItemCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
