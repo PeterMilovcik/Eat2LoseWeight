@@ -3,6 +3,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:eat2LoseWeight="clr-namespace:Eat2LoseWeight;assembly=Eat2LoseWeight"
        x:Class="Eat2LoseWeight.AppShell"
+       NavBarIsVisible="False"
        Title="Eat 2 Lose Weight">
     <Shell.Resources>
         <Style x:Key="BaseStyle" TargetType="Element">
