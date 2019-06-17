@@ -14,10 +14,36 @@ namespace Eat2LoseWeight
         private TimeSpan myTime;
         private ObservableCollection<Item> myDisplayedItems;
         private List<Item> AllItems { get; set; }
+        private Item mySelectedItem;
+        private INavigation Navigation { get; }
 
-        public AddItemViewModel()
+        public AddItemViewModel(INavigation navigation)
         {
+            Navigation = navigation;
             AddItemCommand = new Command(async () => await AddItemAsync());
+            SelectionChangedCommand = new Command(async () => await SelectionChangedAsync());
+        }
+
+        private async Task SelectionChangedAsync()
+        {
+            if (SelectedItem != null)
+            {
+                await AddItemAsync(SelectedItem.Name);
+                await Navigation.PopAsync();
+            }
+        }
+
+        public Command SelectionChangedCommand { get; }
+
+        public Item SelectedItem
+        {
+            get => mySelectedItem;
+            set
+            {
+                if (Equals(value, mySelectedItem)) return;
+                mySelectedItem = value;
+                OnPropertyChanged();
+            }
         }
 
         public ObservableCollection<Item> DisplayedItems
@@ -75,16 +101,16 @@ namespace Eat2LoseWeight
 
         public Command AddItemCommand { get; }
 
-        private async Task AddItemAsync()
+        private async Task AddItemAsync(string text)
         {
-            if (string.IsNullOrWhiteSpace(SearchText)) return;
-            if (AllItems.All(i => i.Name != SearchText))
+            if (string.IsNullOrWhiteSpace(text)) return;
+            if (AllItems.All(i => i.Name != text))
             {
-                await App.Database.SaveItemAsync(new Item { Name = SearchText });
+                await App.Database.SaveItemAsync(new Item { Name = text });
                 await LoadAsync();
             }
 
-            var item = AllItems.Single(i => i.Name == SearchText);
+            var item = AllItems.Single(i => i.Name == text);
             var itemRecord = new ItemRecord
             {
                 ItemId = item.Id,
@@ -93,6 +119,8 @@ namespace Eat2LoseWeight
             await App.Database.SaveItemRecordAsync(itemRecord);
             SearchText = null;
         }
+
+        private async Task AddItemAsync() => await AddItemAsync(SearchText);
 
         public void Search()
         {

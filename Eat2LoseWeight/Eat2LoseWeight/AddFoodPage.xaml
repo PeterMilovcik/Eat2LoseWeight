@@ -4,6 +4,23 @@
              x:Class="Eat2LoseWeight.AddFoodPage"
              BackgroundColor="{StaticResource Secondary}"
              Title="Add food or drink">
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="{StaticResource Primary}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
             <SearchBar 
@@ -24,7 +41,10 @@
                     HorizontalOptions="FillAndExpand"
                     TextColor="{StaticResource PrimaryDark}" />
             </StackLayout>
-            <CollectionView ItemsSource="{Binding DisplayedItems}">
+            <CollectionView ItemsSource="{Binding DisplayedItems}"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                            SelectionChangedCommand="{Binding SelectionChangedCommand}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
