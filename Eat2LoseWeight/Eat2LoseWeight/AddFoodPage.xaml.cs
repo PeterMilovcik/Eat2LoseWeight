@@ -20,5 +20,10 @@ namespace Eat2LoseWeight
             base.OnAppearing();
             await ViewModel.LoadAsync();
         }
+
+        private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            ViewModel.Search();
+        }
     }
 }

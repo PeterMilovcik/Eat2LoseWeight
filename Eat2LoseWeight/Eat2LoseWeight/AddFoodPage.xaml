@@ -11,8 +11,10 @@
                 PlaceholderColor="{StaticResource Accent}"
                 Text="{Binding SearchText}"
                 TextColor="{StaticResource PrimaryDark}"
-                SearchCommand="{Binding AddItemCommand}" />
-            <StackLayout Orientation="Horizontal">
+                SearchCommand="{Binding AddItemCommand}" 
+                TextChanged="SearchBar_OnTextChanged"
+                Margin="5"/>
+            <StackLayout Orientation="Horizontal" Margin="8, 0">
                 <DatePicker 
                     Date="{Binding Date}"
                     HorizontalOptions="FillAndExpand"
@@ -22,6 +24,25 @@
                     HorizontalOptions="FillAndExpand"
                     TextColor="{StaticResource PrimaryDark}" />
             </StackLayout>
+            <CollectionView ItemsSource="{Binding DisplayedItems}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Frame BorderColor="{StaticResource Accent}"
+                                   BackgroundColor="{StaticResource SecondaryDark}"
+                                   CornerRadius="3"
+                                   HasShadow="True"
+                                   Margin="20, 3"
+                                   Padding="8">
+                                <Label Text="{Binding Name}" 
+                                       TextColor="{StaticResource PrimaryDark}"
+                                       Margin="12, 0"
+                                       FontSize="18" />
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

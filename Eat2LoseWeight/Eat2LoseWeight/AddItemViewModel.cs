@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -11,11 +12,23 @@ namespace Eat2LoseWeight
         private string mySearchText;
         private DateTime myDate;
         private TimeSpan myTime;
+        private ObservableCollection<Item> myDisplayedItems;
         private List<Item> AllItems { get; set; }
 
         public AddItemViewModel()
         {
             AddItemCommand = new Command(async () => await AddItemAsync());
+        }
+
+        public ObservableCollection<Item> DisplayedItems
+        {
+            get => myDisplayedItems;
+            private set
+            {
+                if (Equals(value, myDisplayedItems)) return;
+                myDisplayedItems = value;
+                OnPropertyChanged();
+            }
         }
 
         public async Task LoadAsync()
@@ -24,6 +37,7 @@ namespace Eat2LoseWeight
             var now = DateTime.Now;
             Date = new DateTime(now.Year, now.Month, now.Day);
             Time = new TimeSpan(now.Hour, now.Minute, now.Second);
+            DisplayedItems = new ObservableCollection<Item>(AllItems);
         }
 
         public string SearchText
@@ -78,6 +92,13 @@ namespace Eat2LoseWeight
             };
             await App.Database.SaveItemRecordAsync(itemRecord);
             SearchText = null;
+        }
+
+        public void Search()
+        {
+            DisplayedItems = string.IsNullOrWhiteSpace(SearchText)
+                ? new ObservableCollection<Item>(AllItems)
+                : new ObservableCollection<Item>(AllItems.Where(i => i.Name.Contains(SearchText)));
         }
     }
 }
