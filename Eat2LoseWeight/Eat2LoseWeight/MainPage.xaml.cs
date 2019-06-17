@@ -4,10 +4,19 @@ namespace Eat2LoseWeight
 {
     public partial class MainPage : ContentPage
     {
+        private MainViewModel ViewModel { get; }
+
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new MainViewModel(Navigation);
+            ViewModel = new MainViewModel(Navigation);
+            BindingContext = ViewModel;
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await ViewModel.CheckInitialWeightAsync();
         }
     }
 }

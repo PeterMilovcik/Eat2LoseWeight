@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Eat2LoseWeight
@@ -12,6 +13,15 @@ namespace Eat2LoseWeight
             Navigation = navigation;
             AddWeightCommand = new Command(async () => await AddWeight());
             AddFoodCommand = new Command(async () => await AddFood());
+        }
+
+        public async Task CheckInitialWeightAsync()
+        {
+            var weightRecords = await App.Database.GetWeightRecordsAsync();
+            if (!weightRecords.Any())
+            {
+                await AddWeight();
+            }
         }
 
         public Command AddWeightCommand { get; }
