@@ -4,7 +4,8 @@
              xmlns:local="clr-namespace:Eat2LoseWeight"
              x:Class="Eat2LoseWeight.MainPage"
              xmlns:fab="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
-             BackgroundColor="{StaticResource Secondary}">
+             BackgroundColor="{StaticResource Secondary}"
+             Title="Eat 2 Lose Weight">
     <StackLayout>
 
         <Label Text="Welcome to Xamarin.Forms!" 

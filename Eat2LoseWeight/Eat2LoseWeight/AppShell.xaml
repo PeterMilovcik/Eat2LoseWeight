@@ -3,16 +3,9 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:eat2LoseWeight="clr-namespace:Eat2LoseWeight;assembly=Eat2LoseWeight"
        x:Class="Eat2LoseWeight.AppShell"
-       NavBarIsVisible="False"
-       Title="Eat 2 Lose Weight">
-    <Shell.Resources>
-        <Style x:Key="BaseStyle" TargetType="Element">
-            <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-            <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource Secondary}" />
-            <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource PrimaryDark}" />
-        </Style>
-    </Shell.Resources>
-    <TabBar Style="{StaticResource BaseStyle}">
+       TitleColor="{DynamicResource Secondary}"
+       BackgroundColor="{DynamicResource Primary}">
+    <TabBar>
         <Tab Title="Meals">
             <ShellContent>
                 <eat2LoseWeight:MainPage />
