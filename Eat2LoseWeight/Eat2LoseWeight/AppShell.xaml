@@ -6,17 +6,17 @@
        TitleColor="{DynamicResource Secondary}"
        BackgroundColor="{DynamicResource Primary}">
     <TabBar>
-        <Tab Title="Meals">
+        <Tab Title="Meals" Icon="tab_fastfood.png">
             <ShellContent>
                 <eat2LoseWeight:MainPage />
             </ShellContent>
         </Tab>
-        <Tab Title="Summary">
+        <Tab Title="Summary" Icon="tab_dashboard.png">
             <ShellContent>
                 <eat2LoseWeight:MainPage />
             </ShellContent>
         </Tab>
-        <Tab Title="More">
+        <Tab Title="More" Icon="tab_more.png">
             <ShellContent>
                 <eat2LoseWeight:MainPage />
             </ShellContent>
