@@ -11,5 +11,9 @@ namespace Eat2LoseWeight
         public int ItemId { get; set; }
 
         public DateTime At { get; set; }
+
+        public bool HasDelta { get; set; }
+
+        public double Delta { get; set; }
     }
 }

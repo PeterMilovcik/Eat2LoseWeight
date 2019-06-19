@@ -6,26 +6,29 @@
              xmlns:fab="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
              BackgroundColor="{StaticResource Secondary}"
              Title="Eat 2 Lose Weight">
-    <StackLayout>
+    <AbsoluteLayout>
 
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           TextColor="{StaticResource PrimaryDark}"
-           VerticalOptions="CenterAndExpand" />
+        <Label 
+            Text="Welcome to Xamarin.Forms!" 
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize"
+            TextColor="{StaticResource PrimaryDark}" />
         <fab:FloatingActionButtonView 
             ImageName="ic_accessibility_new.png"
             ColorNormal="{StaticResource PrimaryDark}"
             ColorPressed="{StaticResource Primary}"
             ColorRipple="{StaticResource Primary}"
-            HorizontalOptions="End"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            AbsoluteLayout.LayoutBounds="1, 0.8, AutoSize, AutoSize"
             Command="{Binding AddWeightCommand}" />
         <fab:FloatingActionButtonView 
             ImageName="ic_fastfood.png"
             ColorNormal="{StaticResource PrimaryDark}"
             ColorPressed="{StaticResource Primary}"
             ColorRipple="{StaticResource Primary}"
-            HorizontalOptions="End"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
             Command="{Binding AddFoodCommand}" />
-    </StackLayout>
+    </AbsoluteLayout>
 
 </ContentPage>
