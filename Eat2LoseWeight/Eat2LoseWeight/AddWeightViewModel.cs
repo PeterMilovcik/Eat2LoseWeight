@@ -42,16 +42,22 @@ namespace Eat2LoseWeight
         private async Task UpdateItemRecordsAsync(double weight)
         {
             var weightRecords = await App.Database.GetWeightRecordsAsync();
-            var previousWeightRecord = weightRecords.OrderByDescending(w => w.MeasuredAt).First();
-            var delta = weight - previousWeightRecord.Value;
-            var itemRecords = await App.Database.GetItemRecordsAsync();
-            var itemsToUpdate = itemRecords.Where(i => !i.HasDelta).ToList();
-            itemsToUpdate.ForEach(i =>
+            if (weightRecords.Any())
             {
-                i.HasDelta = true;
-                i.Delta = delta;
-            });
-            await App.Database.UpdateItemRecordsAsync(itemsToUpdate);
+                var previousWeightRecord = weightRecords.OrderByDescending(w => w.MeasuredAt).First();
+                var delta = weight - previousWeightRecord.Value;
+                var itemRecords = await App.Database.GetItemRecordsAsync();
+                var itemsToUpdate = itemRecords.Where(i => !i.HasDelta).ToList();
+                itemsToUpdate.ForEach(i =>
+                {
+                    i.HasDelta = true;
+                    i.Delta = delta;
+                });
+                if (itemsToUpdate.Any())
+                {
+                    await App.Database.UpdateItemRecordsAsync(itemsToUpdate);
+                }
+            }
         }
 
         private async Task SaveToDatabaseAsync(double weight) =>
