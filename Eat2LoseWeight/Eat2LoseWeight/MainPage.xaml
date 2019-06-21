@@ -18,12 +18,12 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="20, 3">
-                        <Frame Padding="0"
+                        <Frame Padding="6"
                             BorderColor="{StaticResource Accent}"
                             BackgroundColor="{StaticResource SecondaryDark}"
                             CornerRadius="3"
                             HasShadow="True">
-                            <Grid Padding="0">
+                            <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
