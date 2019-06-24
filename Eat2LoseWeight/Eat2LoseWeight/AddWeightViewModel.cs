@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -33,30 +32,8 @@ namespace Eat2LoseWeight
         {
             if (CanSubmit())
             {
-                await UpdateItemRecordsAsync(Weight);
                 await SaveToDatabaseAsync(Weight);
                 await Navigation.PopAsync();
-            }
-        }
-
-        private async Task UpdateItemRecordsAsync(double weight)
-        {
-            var weightRecords = await App.Database.GetWeightRecordsAsync();
-            if (weightRecords.Any())
-            {
-                var previousWeightRecord = weightRecords.OrderByDescending(w => w.MeasuredAt).First();
-                var delta = weight - previousWeightRecord.Value;
-                var itemRecords = await App.Database.GetItemRecordsAsync();
-                var itemsToUpdate = itemRecords.Where(i => !i.HasDelta).ToList();
-                itemsToUpdate.ForEach(i =>
-                {
-                    i.HasDelta = true;
-                    i.Delta = delta;
-                });
-                if (itemsToUpdate.Any())
-                {
-                    await App.Database.UpdateItemRecordsAsync(itemsToUpdate);
-                }
             }
         }
 

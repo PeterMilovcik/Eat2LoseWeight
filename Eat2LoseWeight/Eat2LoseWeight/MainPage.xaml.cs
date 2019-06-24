@@ -17,7 +17,6 @@ namespace Eat2LoseWeight
         {
             base.OnAppearing();
             await ViewModel.CheckInitialWeightAsync();
-            await ViewModel.LoadAsync();
         }
     }
 }

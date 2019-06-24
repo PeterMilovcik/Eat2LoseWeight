@@ -33,8 +33,5 @@ namespace Eat2LoseWeight
 
         public Task<int> SaveItemRecordAsync(ItemRecord itemRecord) =>
             Connection.InsertAsync(itemRecord);
-
-        public Task<int> UpdateItemRecordsAsync(List<ItemRecord> itemsToUpdate) =>
-            Connection.UpdateAllAsync(itemsToUpdate);
     }
 }

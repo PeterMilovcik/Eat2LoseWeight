@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Xamarin.Forms;
 
 namespace Eat2LoseWeight.Droid
 {
@@ -11,6 +12,10 @@ namespace Eat2LoseWeight.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
+
+            RequestedOrientation = Device.Idiom == TargetIdiom.Phone
+                ? ScreenOrientation.Portrait
+                : ScreenOrientation.SensorLandscape;
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");

@@ -7,65 +7,42 @@
              BackgroundColor="{StaticResource Secondary}"
              Title="Eat 2 Lose Weight">
 
-    <AbsoluteLayout 
-        VerticalOptions="FillAndExpand" 
-        HorizontalOptions="FillAndExpand">
+    <RelativeLayout>
 
-        <CollectionView 
-            ItemsSource="{Binding Items}"
-            AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="20, 3">
-                        <Frame Padding="6"
-                            BorderColor="{StaticResource Accent}"
-                            BackgroundColor="{StaticResource SecondaryDark}"
-                            CornerRadius="3"
-                            HasShadow="True">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Label 
-                                    Grid.Column="0"
-                                    Text="{Binding Name}" 
-                                    TextColor="{StaticResource PrimaryDark}"
-                                    Margin="12, 0"
-                                    FontSize="16" />
-                                <Label 
-                                    Grid.Column="1"
-                                    Text="{Binding Delta}" 
-                                    TextColor="{StaticResource PrimaryDark}"
-                                    Margin="12, 0"
-                                    FontSize="16"
-                                    FontAttributes="Bold"/>
-                            </Grid>
-                        </Frame>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <Label 
+            Text="Welcome to Xamarin.Forms!"
+            BackgroundColor="{StaticResource Accent}"
+            RelativeLayout.YConstraint=
+                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=0}"
+            RelativeLayout.WidthConstraint=
+                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
+            RelativeLayout.HeightConstraint=
+                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=0}"
+            TextColor="{StaticResource PrimaryDark}"/>
 
         <fab:FloatingActionButtonView 
+            x:Name="AddWeightButton"
             ImageName="ic_accessibility_new.png"
             ColorNormal="{StaticResource PrimaryDark}"
             ColorPressed="{StaticResource Primary}"
             ColorRipple="{StaticResource Primary}"
-            AbsoluteLayout.LayoutFlags="PositionProportional"
-            AbsoluteLayout.LayoutBounds="1, 0.8, AutoSize, AutoSize"
-            Command="{Binding AddWeightCommand}" />
+            Command="{Binding AddWeightCommand}"
+            RelativeLayout.XConstraint=
+                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.75, Constant=0}"
+            RelativeLayout.YConstraint=
+                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=.8, Constant=0}" />
 
         <fab:FloatingActionButtonView 
             ImageName="ic_fastfood.png"
             ColorNormal="{StaticResource PrimaryDark}"
             ColorPressed="{StaticResource Primary}"
             ColorRipple="{StaticResource Primary}"
-            AbsoluteLayout.LayoutFlags="PositionProportional"
-            AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
-            Command="{Binding AddFoodCommand}" />
+            Command="{Binding AddFoodCommand}" 
+            RelativeLayout.XConstraint=
+                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.75, Constant=0}"
+            RelativeLayout.YConstraint=
+                "{ConstraintExpression Type=RelativeToView, ElementName=AddWeightButton, Property=Y, Factor=1, Constant=-70}" />
 
-    </AbsoluteLayout>
+    </RelativeLayout>
 
 </ContentPage>
