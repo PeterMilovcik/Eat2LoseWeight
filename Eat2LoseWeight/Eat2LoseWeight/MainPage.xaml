@@ -9,16 +9,20 @@
 
     <RelativeLayout>
 
-        <Label 
-            Text="Welcome to Xamarin.Forms!"
-            BackgroundColor="{StaticResource Accent}"
+        <CollectionView 
+            ItemsSource="{Binding Items}"
             RelativeLayout.YConstraint=
                 "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=0}"
             RelativeLayout.WidthConstraint=
                 "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
             RelativeLayout.HeightConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=0}"
-            TextColor="{StaticResource PrimaryDark}"/>
+                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=0}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <local:MealItemView />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
         <fab:FloatingActionButtonView 
             x:Name="AddWeightButton"
