@@ -7,6 +7,10 @@
              BackgroundColor="{StaticResource Secondary}"
              Title="Eat 2 Lose Weight">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Sort" IconImageSource="ic_sort.png" />
+    </ContentPage.ToolbarItems>
+
     <RelativeLayout>
 
         <CollectionView 

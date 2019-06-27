@@ -4,7 +4,9 @@
        xmlns:eat2LoseWeight="clr-namespace:Eat2LoseWeight;assembly=Eat2LoseWeight"
        x:Class="Eat2LoseWeight.AppShell"
        TitleColor="{DynamicResource Secondary}"
+       ForegroundColor="{DynamicResource Secondary}"
        BackgroundColor="{DynamicResource Primary}">
+
     <TabBar>
         <Tab Title="Meals" Icon="tab_fastfood.png">
             <ShellContent>
@@ -22,4 +24,5 @@
             </ShellContent>
         </Tab>
     </TabBar>
+
 </Shell>
