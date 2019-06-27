@@ -2,9 +2,10 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Eat2LoseWeight.MealItemView">
-  <ContentView.Content>
-      <Grid>
-            <Frame>
+    <ContentView.Content>
+        <Grid>
+            <Frame HasShadow="True" CornerRadius="3" BackgroundColor="{StaticResource SecondaryDark}"
+                   BorderColor="{StaticResource Accent}" Margin="15, 3" Padding="15, 3">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30" />
@@ -15,11 +16,18 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <Label Text="{Binding Count, StringFormat='{0}x'}" Grid.Column="0" />
+                    <Label Text="{Binding Count, StringFormat='{0}x'}" Grid.Column="0" 
+                           TextColor="{StaticResource PrimaryDark}" FontSize="Medium"
+                           HorizontalTextAlignment="Start" VerticalTextAlignment="End" />
 
-                    <Label Text="{Binding Name}" Grid.Column="1" />
+                    <Label Text="{Binding Name}" Grid.Column="1" TextColor="{StaticResource PrimaryDark}"
+                           HorizontalTextAlignment="Start" VerticalTextAlignment="End" 
+                           FontAttributes="Bold" FontSize="Medium" />
 
-                    <Label Text="{Binding Average, StringFormat='{0:F2}'}" Grid.Column="2" />
+                    <Label Text="{Binding Average, StringFormat='{0:F2}'}" Grid.Column="2" 
+                           TextColor="{StaticResource PrimaryDark}" 
+                           FontAttributes="Bold" FontSize="Medium"
+                           HorizontalTextAlignment="End" VerticalTextAlignment="End" />
                 </Grid>
             </Frame>
         </Grid>

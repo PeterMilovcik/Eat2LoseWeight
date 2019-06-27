@@ -16,7 +16,7 @@ namespace Eat2LoseWeight
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await ViewModel.CheckInitialWeightAsync();
+            // await ViewModel.CheckInitialWeightAsync();
             await ViewModel.LoadAsync();
         }
     }
