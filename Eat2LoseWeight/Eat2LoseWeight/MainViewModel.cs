@@ -10,14 +10,29 @@ namespace Eat2LoseWeight
         private ObservableCollection<MealItemViewModel> myItems;
         private INavigation Navigation { get; }
         private IWeightChangeDistributionStrategy DistributionStrategy { get; }
+        private bool CanSortAscending { get; set; }
 
         public MainViewModel(INavigation navigation)
         {
             Navigation = navigation;
             AddWeightCommand = new Command(async () => await AddWeight());
             AddFoodCommand = new Command(async () => await AddFood());
+            ToggleSortCommand = new Command(ToggleSort);
             DistributionStrategy = new ProportionalWeightChangeDistributionStrategy();
         }
+
+        private void ToggleSort()
+        {
+            SortItems();
+            CanSortAscending = !CanSortAscending;
+        }
+
+        private void SortItems() =>
+            Items = CanSortAscending
+                ? new ObservableCollection<MealItemViewModel>(Items.OrderBy(i => i.Average))
+                : new ObservableCollection<MealItemViewModel>(Items.OrderByDescending(i => i.Average));
+
+        public Command ToggleSortCommand { get; }
 
         public async Task LoadAsync()
         {
@@ -46,8 +61,8 @@ namespace Eat2LoseWeight
                                 Count = pair.Value.Count,
                                 Average = pair.Value.Average(),
                                 Sum = pair.Value.Sum()
-                            })
-                        .OrderByDescending(i => i.Average));
+                            }));
+                SortItems();
             }
         }
 
