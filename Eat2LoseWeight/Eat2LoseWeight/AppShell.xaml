@@ -14,7 +14,7 @@
                 <views:TodayPage />
             </ShellContent>
         </Tab>
-        <Tab Title="Meals" Icon="tab_fastfood.png">
+        <Tab Title="Food" Icon="tab_fastfood.png">
             <ShellContent>
                 <views:MainPage />
             </ShellContent>

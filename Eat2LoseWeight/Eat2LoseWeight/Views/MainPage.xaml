@@ -6,7 +6,7 @@
              xmlns:fab="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
              xmlns:views="clr-namespace:Eat2LoseWeight.Views;assembly=Eat2LoseWeight"
              BackgroundColor="{StaticResource Secondary}"
-             Title="Eat 2 Lose Weight">
+             Title="Food">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Sort" IconImageSource="ic_sort.png" Command="{Binding ToggleSortCommand}" />
