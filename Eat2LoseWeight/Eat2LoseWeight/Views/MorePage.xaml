@@ -17,7 +17,8 @@
                     Command="{Binding WeightHistoryCommand}" />
                 <TextCell 
                     Text="Food" 
-                    TextColor="{StaticResource PrimaryDark}"/>
+                    TextColor="{StaticResource PrimaryDark}"
+                    Command="{Binding FoodHistoryCommand}" />
             </TableSection>
 
             <TableSection 

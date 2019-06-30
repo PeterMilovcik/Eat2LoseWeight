@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Eat2LoseWeight.Views.FoodHistoryPage"
+             Title="Food History"
+             BackgroundColor="{StaticResource Secondary}">
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <CollectionView 
+                ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Frame HasShadow="True" CornerRadius="3" BackgroundColor="{StaticResource SecondaryDark}"
+                                   BorderColor="{StaticResource Accent}" Margin="15, 3" Padding="15, 6">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Text="{Binding Name}" Grid.Column="0" 
+                                           TextColor="{StaticResource PrimaryDark}" 
+                                           FontAttributes="Bold" FontSize="Medium" />
+
+                                    <Label Text="{Binding At}" Grid.Column="1" 
+                                           TextColor="{StaticResource PrimaryDark}"
+                                           FontSize="Medium" />
+
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -5,15 +5,15 @@ namespace Eat2LoseWeight.ViewModels
 {
     public class MoreViewModel
     {
-        private INavigation Navigation { get; }
-
         public MoreViewModel(INavigation navigation)
         {
-            Navigation = navigation;
             WeightHistoryCommand = new Command(
-                async () => await Navigation.PushAsync(new WeightHistoryPage()));
+                async () => await navigation.PushAsync(new WeightHistoryPage()));
+            FoodHistoryCommand = new Command(
+                async () => await navigation.PushAsync(new FoodHistoryPage()));
         }
 
         public Command WeightHistoryCommand { get; }
+        public Command FoodHistoryCommand { get; }
     }
 }
