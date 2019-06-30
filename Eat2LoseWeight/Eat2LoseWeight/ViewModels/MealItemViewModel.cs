@@ -1,4 +1,4 @@
-﻿namespace Eat2LoseWeight
+﻿namespace Eat2LoseWeight.ViewModels
 {
     public class MealItemViewModel
     {

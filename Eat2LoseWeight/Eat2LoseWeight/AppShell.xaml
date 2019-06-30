@@ -2,6 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:eat2LoseWeight="clr-namespace:Eat2LoseWeight;assembly=Eat2LoseWeight"
+       xmlns:views="clr-namespace:Eat2LoseWeight.Views;assembly=Eat2LoseWeight"
        x:Class="Eat2LoseWeight.AppShell"
        TitleColor="{DynamicResource Secondary}"
        ForegroundColor="{DynamicResource Secondary}"
@@ -10,17 +11,17 @@
     <TabBar>
         <Tab Title="Meals" Icon="tab_fastfood.png">
             <ShellContent>
-                <eat2LoseWeight:MainPage />
+                <views:MainPage />
             </ShellContent>
         </Tab>
         <Tab Title="Summary" Icon="tab_dashboard.png">
             <ShellContent>
-                <eat2LoseWeight:MainPage />
+                <views:MainPage />
             </ShellContent>
         </Tab>
         <Tab Title="More" Icon="tab_more.png">
             <ShellContent>
-                <eat2LoseWeight:MainPage />
+                <views:MainPage />
             </ShellContent>
         </Tab>
     </TabBar>

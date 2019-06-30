@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Eat2LoseWeight.DataAccess.Entities;
 
-namespace Eat2LoseWeight
+namespace Eat2LoseWeight.Models
 {
     public class ProportionalWeightChangeDistributionStrategy : IWeightChangeDistributionStrategy
     {

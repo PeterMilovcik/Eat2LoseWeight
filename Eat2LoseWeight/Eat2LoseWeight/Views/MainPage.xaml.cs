@@ -1,6 +1,7 @@
-﻿using Xamarin.Forms;
+﻿using Eat2LoseWeight.ViewModels;
+using Xamarin.Forms;
 
-namespace Eat2LoseWeight
+namespace Eat2LoseWeight.Views
 {
     public partial class MainPage : ContentPage
     {

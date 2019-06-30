@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Eat2LoseWeight.DataAccess.Entities;
 using Xamarin.Forms;
 
-namespace Eat2LoseWeight
+namespace Eat2LoseWeight.ViewModels
 {
     public class AddItemViewModel : ViewModel
     {

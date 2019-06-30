@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace Eat2LoseWeight
+namespace Eat2LoseWeight.Models
 {
     public class WeightChangeDistribution : IEnumerable<KeyValuePair<int, List<double>>>
     {

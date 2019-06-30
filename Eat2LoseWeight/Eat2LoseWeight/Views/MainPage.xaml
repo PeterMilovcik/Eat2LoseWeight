@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Eat2LoseWeight"
-             x:Class="Eat2LoseWeight.MainPage"
+             x:Class="Eat2LoseWeight.Views.MainPage"
              xmlns:fab="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
+             xmlns:views="clr-namespace:Eat2LoseWeight.Views;assembly=Eat2LoseWeight"
              BackgroundColor="{StaticResource Secondary}"
              Title="Eat 2 Lose Weight">
 
@@ -23,7 +24,7 @@
                 "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=0}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <local:MealItemView />
+                    <views:MealItemView />
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

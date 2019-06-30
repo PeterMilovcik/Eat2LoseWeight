@@ -1,8 +1,9 @@
-﻿using SQLite;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Eat2LoseWeight.DataAccess.Entities;
+using SQLite;
 
-namespace Eat2LoseWeight
+namespace Eat2LoseWeight.DataAccess
 {
     public class Database
     {

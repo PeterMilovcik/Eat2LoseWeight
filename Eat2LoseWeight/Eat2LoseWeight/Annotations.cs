@@ -30,7 +30,7 @@ using System;
 // ReSharper disable MemberCanBeProtected.Global
 // ReSharper disable InconsistentNaming
 
-namespace Eat2LoseWeight.Annotations
+namespace Eat2LoseWeight
 {
   /// <summary>
   /// Indicates that the value of the marked element could be <c>null</c> sometimes,

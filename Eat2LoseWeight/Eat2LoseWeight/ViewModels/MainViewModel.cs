@@ -1,9 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Eat2LoseWeight.Models;
+using Eat2LoseWeight.Views;
 using Xamarin.Forms;
 
-namespace Eat2LoseWeight
+namespace Eat2LoseWeight.ViewModels
 {
     public class MainViewModel : ViewModel
     {

@@ -1,8 +1,7 @@
-﻿using Eat2LoseWeight.Annotations;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Eat2LoseWeight
+namespace Eat2LoseWeight.ViewModels
 {
     public class ViewModel : INotifyPropertyChanged
     {

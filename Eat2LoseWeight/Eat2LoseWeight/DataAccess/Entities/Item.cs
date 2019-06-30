@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace Eat2LoseWeight
+namespace Eat2LoseWeight.DataAccess.Entities
 {
     public class Item
     {
