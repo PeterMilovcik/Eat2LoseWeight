@@ -68,9 +68,9 @@
                 ColorRipple="{StaticResource Primary}"
                 Command="{Binding AddWeightCommand}"
                 RelativeLayout.XConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-85}"
+                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-95}"
                 RelativeLayout.YConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-150}" />
+                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-170}" />
 
             <fabControl:FloatingActionButtonView 
                 ImageName="ic_fastfood.png"
@@ -79,9 +79,9 @@
                 ColorRipple="{StaticResource Primary}"
                 Command="{Binding AddFoodCommand}" 
                 RelativeLayout.XConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-85}"
+                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-95}"
                 RelativeLayout.YConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-85}" />
+                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-95}" />
 
         </RelativeLayout>
     </ContentPage.Content>
