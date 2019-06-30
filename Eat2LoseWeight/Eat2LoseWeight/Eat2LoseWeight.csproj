@@ -16,16 +16,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="AddFoodPage.xaml">
+    <EmbeddedResource Update="Views\AddFoodPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="AddWeightPage.xaml">
+    <EmbeddedResource Update="Views\AddWeightPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="AppShell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="MealItemView.xaml">
+    <EmbeddedResource Update="Views\MealItemView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
