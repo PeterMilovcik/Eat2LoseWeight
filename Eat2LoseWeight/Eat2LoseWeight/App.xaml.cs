@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Eat2LoseWeight.DataAccess;
+using System;
 using System.IO;
-using Eat2LoseWeight.DataAccess;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,7 +25,7 @@ namespace Eat2LoseWeight
 
         private static void CreateDatabase()
         {
-            var folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var folderPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var dbPath = Path.Combine(folderPath, "database.db3");
             database = new Database(dbPath);
         }

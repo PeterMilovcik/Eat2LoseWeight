@@ -12,16 +12,10 @@
         <ToolbarItem Text="Sort" IconImageSource="ic_sort.png" Command="{Binding ToggleSortCommand}" />
     </ContentPage.ToolbarItems>
 
-    <RelativeLayout>
+    <StackLayout>
 
         <CollectionView 
-            ItemsSource="{Binding Items}"
-            RelativeLayout.YConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=0}"
-            RelativeLayout.WidthConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
-            RelativeLayout.HeightConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=0}">
+            ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <views:MealItemView />
@@ -29,29 +23,6 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <fab:FloatingActionButtonView 
-            x:Name="AddWeightButton"
-            ImageName="ic_accessibility_new.png"
-            ColorNormal="{StaticResource PrimaryDark}"
-            ColorPressed="{StaticResource Primary}"
-            ColorRipple="{StaticResource Primary}"
-            Command="{Binding AddWeightCommand}"
-            RelativeLayout.XConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.75, Constant=0}"
-            RelativeLayout.YConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=.8, Constant=0}" />
-
-        <fab:FloatingActionButtonView 
-            ImageName="ic_fastfood.png"
-            ColorNormal="{StaticResource PrimaryDark}"
-            ColorPressed="{StaticResource Primary}"
-            ColorRipple="{StaticResource Primary}"
-            Command="{Binding AddFoodCommand}" 
-            RelativeLayout.XConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.75, Constant=0}"
-            RelativeLayout.YConstraint=
-                "{ConstraintExpression Type=RelativeToView, ElementName=AddWeightButton, Property=Y, Factor=1, Constant=-70}" />
-
-    </RelativeLayout>
+    </StackLayout>
 
 </ContentPage>
