@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Eat2LoseWeight.DataAccess.Entities;
+using System;
 using System.Threading.Tasks;
-using Eat2LoseWeight.DataAccess.Entities;
 using Xamarin.Forms;
 
 namespace Eat2LoseWeight.ViewModels
 {
     public class AddWeightViewModel : ViewModel
     {
-        private double myWeight;
+        private string myWeight;
         private INavigation Navigation { get; }
 
         public AddWeightViewModel(INavigation navigation)
@@ -16,12 +16,12 @@ namespace Eat2LoseWeight.ViewModels
             SubmitCommand = new Command(async () => await SubmitAsync());
         }
 
-        public double Weight
+        public string Weight
         {
             get => myWeight;
             set
             {
-                if (value.Equals(myWeight)) return;
+                if (Equals(myWeight, value)) return;
                 myWeight = value;
                 OnPropertyChanged();
             }
@@ -33,7 +33,7 @@ namespace Eat2LoseWeight.ViewModels
         {
             if (CanSubmit())
             {
-                await SaveToDatabaseAsync(Weight);
+                await SaveToDatabaseAsync(double.Parse(Weight));
                 await Navigation.PopAsync();
             }
         }
@@ -46,6 +46,6 @@ namespace Eat2LoseWeight.ViewModels
                     MeasuredAt = DateTime.Now
                 });
 
-        private bool CanSubmit() => Weight > 0;
+        private bool CanSubmit() => double.TryParse(Weight, out var value) && value > 0;
     }
 }
