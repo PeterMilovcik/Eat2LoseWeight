@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eat2LoseWeight.Views;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace Eat2LoseWeight.ViewModels
         {
             Navigation = navigation;
             ToggleSortCommand = new Command(ToggleSort);
+            AddWeightCommand = new Command(async () => await AddWeight());
+            AddFoodCommand = new Command(async () => await AddFood());
             CanSortAscending = true;
         }
 
@@ -59,6 +62,14 @@ namespace Eat2LoseWeight.ViewModels
             Items = new ObservableCollection<Model>(models);
             SortItems();
         }
+
+        public Command AddWeightCommand { get; }
+
+        public Command AddFoodCommand { get; }
+
+        private async Task AddWeight() => await Navigation.PushAsync(new AddWeightPage());
+
+        private async Task AddFood() => await Navigation.PushAsync(new AddFoodPage());
 
         public class Model
         {

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fabControl="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
              x:Class="Eat2LoseWeight.Views.TodayPage"
              Title="Today"
              BackgroundColor="{StaticResource Secondary}">
@@ -59,6 +60,28 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <fabControl:FloatingActionButtonView 
+                ImageName="ic_accessibility_new.png"
+                ColorNormal="{StaticResource PrimaryDark}"
+                ColorPressed="{StaticResource Primary}"
+                ColorRipple="{StaticResource Primary}"
+                Command="{Binding AddWeightCommand}"
+                RelativeLayout.XConstraint=
+                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-85}"
+                RelativeLayout.YConstraint=
+                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-150}" />
+
+            <fabControl:FloatingActionButtonView 
+                ImageName="ic_fastfood.png"
+                ColorNormal="{StaticResource PrimaryDark}"
+                ColorPressed="{StaticResource Primary}"
+                ColorRipple="{StaticResource Primary}"
+                Command="{Binding AddFoodCommand}" 
+                RelativeLayout.XConstraint=
+                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-85}"
+                RelativeLayout.YConstraint=
+                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-85}" />
 
         </RelativeLayout>
     </ContentPage.Content>
