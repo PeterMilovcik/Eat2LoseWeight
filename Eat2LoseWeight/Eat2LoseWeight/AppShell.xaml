@@ -26,7 +26,7 @@
         </Tab>
         <Tab Title="More" Icon="tab_more.png">
             <ShellContent>
-                <views:MainPage />
+                <views:MorePage />
             </ShellContent>
         </Tab>
     </TabBar>
