@@ -21,7 +21,7 @@
         </Tab>
         <Tab Title="Summary" Icon="tab_dashboard.png">
             <ShellContent>
-                <views:MainPage />
+                <views:SummaryPage />
             </ShellContent>
         </Tab>
         <Tab Title="More" Icon="tab_more.png">
