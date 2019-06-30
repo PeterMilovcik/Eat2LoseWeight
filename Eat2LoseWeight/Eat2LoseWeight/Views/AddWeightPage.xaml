@@ -26,13 +26,13 @@
                 HorizontalTextAlignment="Center" 
                 FontSize="Large" Keyboard="Numeric" 
                 Text="{Binding Weight}" />
-            <Button
+            <ImageButton
                 Grid.Row="1" Grid.Column="2"
-                Text="Ok"
-                TextColor="{StaticResource Secondary}"
                 BackgroundColor="{StaticResource Primary}"
+                Source="ic_ok.png"
+                Aspect="AspectFit"
                 HorizontalOptions="Center" VerticalOptions="Center"
-                HeightRequest="40" WidthRequest="50" CornerRadius="20" 
+                HeightRequest="40" WidthRequest="40" CornerRadius="20" 
                 Command="{Binding SubmitCommand}" />
         </Grid>
     </ContentPage.Content>
