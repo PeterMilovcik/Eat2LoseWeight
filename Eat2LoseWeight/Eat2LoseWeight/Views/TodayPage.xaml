@@ -51,7 +51,7 @@
 
                                     <Label Text="{Binding AtFormatted}" Grid.Column="1" 
                                            TextColor="{StaticResource PrimaryDark}" 
-                                           FontAttributes="Bold" FontSize="Medium"
+                                           FontSize="Medium"
                                            HorizontalTextAlignment="End" VerticalTextAlignment="End" />
                                 </Grid>
                             </Frame>

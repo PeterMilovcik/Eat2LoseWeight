@@ -7,6 +7,26 @@
     BackgroundColor="{StaticResource Secondary}">
     <ContentPage.Content>
         <TableView>
+            
+            <TableSection 
+                Title="History"
+                TextColor="{StaticResource Accent}">
+                <TextCell 
+                    Text="Weight" 
+                    TextColor="{StaticResource PrimaryDark}"
+                    Command="{Binding WeightHistoryCommand}" />
+                <TextCell 
+                    Text="Food" 
+                    TextColor="{StaticResource PrimaryDark}"/>
+            </TableSection>
+
+            <TableSection 
+                Title="Units"
+                TextColor="{StaticResource Accent}">
+                <TextCell 
+                    Text="Kilogram (kg)" 
+                    TextColor="{StaticResource PrimaryDark}"/>
+            </TableSection>
 
         </TableView>
     </ContentPage.Content>
