@@ -9,6 +9,11 @@
        BackgroundColor="{DynamicResource Primary}">
 
     <TabBar>
+        <Tab Title="Today" Icon="tab_today.png">
+            <ShellContent>
+                <views:TodayPage />
+            </ShellContent>
+        </Tab>
         <Tab Title="Meals" Icon="tab_fastfood.png">
             <ShellContent>
                 <views:MainPage />

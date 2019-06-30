@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Eat2LoseWeight.Views.TodayPage"
+             Title="Today"
+             BackgroundColor="{StaticResource Secondary}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Sort" IconImageSource="ic_sort.png" Command="{Binding ToggleSortCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid>
+
+            <CollectionView 
+                ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid>
+                            <Frame HasShadow="True" CornerRadius="3" BackgroundColor="{StaticResource SecondaryDark}"
+                                   BorderColor="{StaticResource Accent}" Margin="15, 3" Padding="15, 3">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Text="{Binding Name}" Grid.Column="0" 
+                                           TextColor="{StaticResource PrimaryDark}"
+                                           HorizontalTextAlignment="Start" VerticalTextAlignment="End" 
+                                           FontAttributes="Bold" FontSize="Medium" />
+
+                                    <Label Text="{Binding AtFormatted}" Grid.Column="1" 
+                                           TextColor="{StaticResource PrimaryDark}" 
+                                           FontAttributes="Bold" FontSize="Medium"
+                                           HorizontalTextAlignment="End" VerticalTextAlignment="End" />
+                                </Grid>
+                            </Frame>
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
