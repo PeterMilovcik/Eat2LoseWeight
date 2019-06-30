@@ -1,8 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using Eat2LoseWeight.Models;
+using Eat2LoseWeight.Views;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using Eat2LoseWeight.Models;
-using Eat2LoseWeight.Views;
 using Xamarin.Forms;
 
 namespace Eat2LoseWeight.ViewModels
@@ -21,6 +21,7 @@ namespace Eat2LoseWeight.ViewModels
             AddFoodCommand = new Command(async () => await AddFood());
             ToggleSortCommand = new Command(ToggleSort);
             DistributionStrategy = new ProportionalWeightChangeDistributionStrategy();
+            CanSortAscending = true;
         }
 
         private void ToggleSort()
@@ -63,8 +64,8 @@ namespace Eat2LoseWeight.ViewModels
                                 Count = pair.Value.Count,
                                 Average = pair.Value.Average(),
                                 Sum = pair.Value.Sum()
-                            }));
-                SortItems();
+                            })
+                        .OrderByDescending(i => i.Average));
             }
         }
 

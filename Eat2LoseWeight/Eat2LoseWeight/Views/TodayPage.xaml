@@ -10,16 +10,21 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <Grid>
+        <RelativeLayout>
 
             <CollectionView 
-                ItemsSource="{Binding Items}">
+                ItemsSource="{Binding Items}"
+                RelativeLayout.WidthConstraint=
+                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
+                RelativeLayout.HeightConstraint=
+                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=0}">
                 <CollectionView.EmptyViewTemplate>
                     <DataTemplate>
                         <Label
                             Text="What have you eat or drink today?"
                             TextColor="{StaticResource PrimaryDark}"
                             HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
                             VerticalOptions="CenterAndExpand" />
                     </DataTemplate>
                 </CollectionView.EmptyViewTemplate>
@@ -55,6 +60,6 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-        </Grid>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
