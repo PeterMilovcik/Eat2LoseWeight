@@ -13,6 +13,7 @@ namespace Eat2LoseWeight.ViewModels
         private bool CanSortAscending { get; set; }
 
         private ObservableCollection<Model> myItems;
+        private string myTitle;
 
         public TodayViewModel(INavigation navigation)
         {
@@ -21,6 +22,18 @@ namespace Eat2LoseWeight.ViewModels
             AddWeightCommand = new Command(async () => await AddWeight());
             AddFoodCommand = new Command(async () => await AddFood());
             CanSortAscending = true;
+            Title = "Today";
+        }
+
+        public string Title
+        {
+            get => myTitle;
+            set
+            {
+                if (Equals(myTitle, value)) return;
+                myTitle = value;
+                OnPropertyChanged();
+            }
         }
 
         private void ToggleSort()
@@ -50,6 +63,13 @@ namespace Eat2LoseWeight.ViewModels
 
         public async Task LoadAsync()
         {
+            var weightRecords = await App.Database.GetWeightRecordsAsync();
+            var weightRecord = weightRecords.LastOrDefault(r => r.MeasuredAt.Date == DateTime.Now.Date);
+            if (weightRecord != null)
+            {
+                Title = $"Today {weightRecord.Value}";
+            }
+
             var itemRecords = await App.Database.GetItemRecordsAsync();
             var todayRecords = itemRecords.Where(ir => ir.At.Date == DateTime.Now.Date).ToList();
             var items = await App.Database.GetItemsAsync();
