@@ -28,7 +28,7 @@
 
                         <Grid>
                             <Frame HasShadow="True" CornerRadius="3" BackgroundColor="{StaticResource SecondaryDark}"
-                                   BorderColor="{StaticResource Accent}" Margin="15, 3" Padding="15, 3">
+                                   BorderColor="{StaticResource Accent}" Margin="15, 3" Padding="15, 6">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />

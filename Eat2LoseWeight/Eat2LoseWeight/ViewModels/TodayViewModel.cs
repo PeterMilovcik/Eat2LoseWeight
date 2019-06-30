@@ -46,7 +46,7 @@ namespace Eat2LoseWeight.ViewModels
         public async Task LoadAsync()
         {
             var itemRecords = await App.Database.GetItemRecordsAsync();
-            var todayRecords = itemRecords.Where(ir => ir.At.Date == DateTime.Now.Date);
+            var todayRecords = itemRecords.Where(ir => ir.At.Date == DateTime.Now.Date).ToList();
             var items = await App.Database.GetItemsAsync();
             var models = todayRecords.Select(
                 record =>
