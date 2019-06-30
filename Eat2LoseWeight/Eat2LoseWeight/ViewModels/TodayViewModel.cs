@@ -21,7 +21,6 @@ namespace Eat2LoseWeight.ViewModels
             ToggleSortCommand = new Command(ToggleSort);
             AddWeightCommand = new Command(async () => await AddWeight());
             AddFoodCommand = new Command(async () => await AddFood());
-            CanSortAscending = true;
             Title = "Today";
         }
 
@@ -78,9 +77,8 @@ namespace Eat2LoseWeight.ViewModels
                 {
                     var name = items.Single(item => item.Id == record.ItemId).Name;
                     return new Model(record.Id, name, record.At);
-                });
+                }).OrderBy(m => m.At);
             Items = new ObservableCollection<Model>(models);
-            SortItems();
         }
 
         public Command AddWeightCommand { get; }
