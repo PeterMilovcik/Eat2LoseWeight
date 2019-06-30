@@ -25,7 +25,7 @@ namespace Eat2LoseWeight
 
         private static void CreateDatabase()
         {
-            var folderPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            var folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             var dbPath = Path.Combine(folderPath, "database.db3");
             database = new Database(dbPath);
         }
