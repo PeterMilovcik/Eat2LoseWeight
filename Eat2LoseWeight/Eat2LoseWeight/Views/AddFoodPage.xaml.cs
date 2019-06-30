@@ -19,12 +19,11 @@ namespace Eat2LoseWeight.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            ViewModel.InitializeControls();
             await ViewModel.LoadAsync();
         }
 
-        private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
-        {
+        private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e) =>
             ViewModel.Search();
-        }
     }
 }

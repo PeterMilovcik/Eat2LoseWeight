@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Eat2LoseWeight.DataAccess.Entities;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using Eat2LoseWeight.DataAccess.Entities;
 using Xamarin.Forms;
 
 namespace Eat2LoseWeight.ViewModels
@@ -30,7 +30,6 @@ namespace Eat2LoseWeight.ViewModels
             if (SelectedItem != null)
             {
                 await AddItemAsync(SelectedItem.Name);
-                await Navigation.PopAsync();
             }
         }
 
@@ -58,12 +57,16 @@ namespace Eat2LoseWeight.ViewModels
             }
         }
 
-        public async Task LoadAsync()
+        public void InitializeControls()
         {
-            AllItems = await App.Database.GetItemsAsync();
             var now = DateTime.Now;
             Date = new DateTime(now.Year, now.Month, now.Day);
             Time = new TimeSpan(now.Hour, now.Minute, now.Second);
+        }
+
+        public async Task LoadAsync()
+        {
+            AllItems = await App.Database.GetItemsAsync();
             DisplayedItems = new ObservableCollection<Item>(AllItems);
         }
 
@@ -83,7 +86,7 @@ namespace Eat2LoseWeight.ViewModels
             get => myDate;
             set
             {
-                if (value.Equals(myDate)) return;
+                if (Equals(myDate, value)) return;
                 myDate = value;
                 OnPropertyChanged();
             }
@@ -94,7 +97,7 @@ namespace Eat2LoseWeight.ViewModels
             get => myTime;
             set
             {
-                if (value.Equals(myTime)) return;
+                if (Equals(myTime, value)) return;
                 myTime = value;
                 OnPropertyChanged();
             }
@@ -119,15 +122,14 @@ namespace Eat2LoseWeight.ViewModels
             };
             await App.Database.SaveItemRecordAsync(itemRecord);
             SearchText = null;
+            await Navigation.PopAsync();
         }
 
         private async Task AddItemAsync() => await AddItemAsync(SearchText);
 
-        public void Search()
-        {
+        public void Search() =>
             DisplayedItems = string.IsNullOrWhiteSpace(SearchText)
                 ? new ObservableCollection<Item>(AllItems)
                 : new ObservableCollection<Item>(AllItems.Where(i => i.Name.Contains(SearchText)));
-        }
     }
 }

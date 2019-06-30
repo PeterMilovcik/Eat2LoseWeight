@@ -5,30 +5,50 @@
              BackgroundColor="{StaticResource Secondary}"
              Title="Add food or drink"
              Shell.TabBarIsVisible="False">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" IconImageSource="ic_ok.png" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
-        <StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <SearchBar 
+                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                 Placeholder="Find or add new item"
                 PlaceholderColor="{StaticResource Accent}"
                 Text="{Binding SearchText}"
                 TextColor="{StaticResource PrimaryDark}"
                 SearchCommand="{Binding AddItemCommand}" 
                 TextChanged="SearchBar_OnTextChanged"
+                HorizontalOptions="FillAndExpand"
                 Margin="5"/>
-            <StackLayout Orientation="Horizontal" Margin="8, 0">
-                <DatePicker 
-                    Date="{Binding Date}"
-                    HorizontalOptions="FillAndExpand"
-                    TextColor="{StaticResource PrimaryDark}" />
-                <TimePicker 
-                    Time="{Binding Time}"
-                    HorizontalOptions="FillAndExpand"
-                    TextColor="{StaticResource PrimaryDark}" />
-            </StackLayout>
-            <CollectionView ItemsSource="{Binding DisplayedItems}"
-                            SelectionMode="Single"
-                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                            SelectionChangedCommand="{Binding SelectionChangedCommand}">
+            <DatePicker 
+                Grid.Row="1" Grid.Column="0"
+                Date="{Binding Date, Mode=TwoWay, UpdateSourceEventName=ValueChanged}"
+                HorizontalOptions="FillAndExpand"
+                TextColor="{StaticResource PrimaryDark}" 
+                Margin="8, 0" />
+            <TimePicker 
+                Grid.Row="1" Grid.Column="1"
+                Time="{Binding Time, Mode=TwoWay, UpdateSourceEventName=ValueChanged}"
+                HorizontalOptions="FillAndExpand"
+                TextColor="{StaticResource PrimaryDark}" 
+                Margin="8, 0" />
+            <CollectionView 
+                Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                ItemsSource="{Binding DisplayedItems}"
+                SelectionMode="Single"
+                SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                SelectionChangedCommand="{Binding SelectionChangedCommand}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -47,6 +67,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
