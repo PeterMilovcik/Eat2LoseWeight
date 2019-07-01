@@ -1,32 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage 
+<ContentPage
+    x:Class="Eat2LoseWeight.Views.MorePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Eat2LoseWeight.Views.MorePage"
     Title="More"
     BackgroundColor="{StaticResource Secondary}">
     <ContentPage.Content>
         <TableView>
-            
-            <TableSection 
-                Title="History"
-                TextColor="{StaticResource Accent}">
-                <TextCell 
-                    Text="Weight" 
-                    TextColor="{StaticResource PrimaryDark}"
-                    Command="{Binding WeightHistoryCommand}" />
-                <TextCell 
-                    Text="Food" 
-                    TextColor="{StaticResource PrimaryDark}"
-                    Command="{Binding FoodHistoryCommand}" />
+
+            <TableSection Title="History" TextColor="{StaticResource Accent}">
+                <TextCell
+                    Command="{Binding WeightHistoryCommand}"
+                    Text="Weight"
+                    TextColor="{StaticResource PrimaryDark}" />
+                <TextCell
+                    Command="{Binding FoodHistoryCommand}"
+                    Text="Food"
+                    TextColor="{StaticResource PrimaryDark}" />
             </TableSection>
 
-            <TableSection 
-                Title="Units"
-                TextColor="{StaticResource Accent}">
-                <TextCell 
-                    Text="Kilogram (kg)" 
-                    TextColor="{StaticResource PrimaryDark}"/>
+            <TableSection Title="Units" TextColor="{StaticResource Accent}">
+                <TextCell Text="Kilogram (kg)" TextColor="{StaticResource PrimaryDark}" />
             </TableSection>
 
         </TableView>

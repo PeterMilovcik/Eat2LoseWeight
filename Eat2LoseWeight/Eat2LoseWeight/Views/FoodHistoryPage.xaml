@@ -1,24 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Eat2LoseWeight.Views.FoodHistoryPage"
-             Title="Food History"
-             BackgroundColor="{StaticResource Secondary}">
+<ContentPage
+    x:Class="Eat2LoseWeight.Views.FoodHistoryPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Food History"
+    BackgroundColor="{StaticResource Secondary}">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Edit" IconImageSource="ic_edit.png" Command="{Binding EditModeCommand}" />
+        <ToolbarItem
+            Command="{Binding EditModeCommand}"
+            IconImageSource="ic_edit.png"
+            Text="Edit" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <StackLayout>
 
-            <CollectionView 
-                ItemsSource="{Binding Items}">
+            <CollectionView ItemsSource="{Binding Items}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <Frame HasShadow="True" CornerRadius="3" BackgroundColor="{StaticResource SecondaryDark}"
-                                   BorderColor="{StaticResource Accent}" Margin="15, 3" Padding="15, 6">
+                            <Frame
+                                Margin="15,3"
+                                Padding="15,6"
+                                BackgroundColor="{StaticResource SecondaryDark}"
+                                BorderColor="{StaticResource Accent}"
+                                CornerRadius="3"
+                                HasShadow="True">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
@@ -28,13 +36,18 @@
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
 
-                                    <Label Text="{Binding Name}" Grid.Column="0" 
-                                           TextColor="{StaticResource PrimaryDark}" 
-                                           FontAttributes="Bold" FontSize="Medium" />
+                                    <Label
+                                        Grid.Column="0"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding Name}"
+                                        TextColor="{StaticResource PrimaryDark}" />
 
-                                    <Label Text="{Binding At}" Grid.Column="1" 
-                                           TextColor="{StaticResource PrimaryDark}"
-                                           FontSize="Medium" />
+                                    <Label
+                                        Grid.Column="1"
+                                        FontSize="Medium"
+                                        Text="{Binding At}"
+                                        TextColor="{StaticResource PrimaryDark}" />
 
                                 </Grid>
                             </Frame>
