@@ -7,6 +7,10 @@
     Title="Weight History"
     BackgroundColor="{StaticResource Secondary}">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit" IconImageSource="ic_edit.png" Command="{Binding EditModeCommand}" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout>
 
