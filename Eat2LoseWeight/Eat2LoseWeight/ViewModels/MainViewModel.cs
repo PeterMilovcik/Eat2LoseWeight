@@ -10,13 +10,11 @@ namespace Eat2LoseWeight.ViewModels
     public class MainViewModel : ViewModel
     {
         private ObservableCollection<MealItemViewModel> myItems;
-        private INavigation Navigation { get; }
         private IWeightChangeDistributionStrategy DistributionStrategy { get; }
         private bool CanSortAscending { get; set; }
 
-        public MainViewModel(INavigation navigation)
+        public MainViewModel()
         {
-            Navigation = navigation;
             AddWeightCommand = new Command(async () => await AddWeight());
             AddFoodCommand = new Command(async () => await AddFood());
             ToggleSortCommand = new Command(ToggleSort);
@@ -93,8 +91,8 @@ namespace Eat2LoseWeight.ViewModels
 
         public Command AddFoodCommand { get; }
 
-        private async Task AddWeight() => await Navigation.PushAsync(new AddWeightPage());
+        private async Task AddWeight() => await Shell.Current.GoToAsync(nameof(AddWeightPage));
 
-        private async Task AddFood() => await Navigation.PushAsync(new AddFoodPage());
+        private async Task AddFood() => await Shell.Current.GoToAsync(nameof(AddFoodPage));
     }
 }

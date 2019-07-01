@@ -1,4 +1,5 @@
 ﻿using Eat2LoseWeight.DataAccess.Entities;
+using Eat2LoseWeight.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,11 +17,9 @@ namespace Eat2LoseWeight.ViewModels
         private ObservableCollection<Item> myDisplayedItems;
         private List<Item> AllItems { get; set; }
         private Item mySelectedItem;
-        private INavigation Navigation { get; }
 
-        public AddItemViewModel(INavigation navigation)
+        public AddItemViewModel()
         {
-            Navigation = navigation;
             AddItemCommand = new Command(async () => await AddItemAsync());
             SelectionChangedCommand = new Command(async () => await SelectionChangedAsync());
         }
@@ -122,7 +121,7 @@ namespace Eat2LoseWeight.ViewModels
             };
             await App.Database.SaveItemRecordAsync(itemRecord);
             SearchText = null;
-            await Navigation.PopAsync();
+            await Shell.Current.GoToAsync(nameof(TodayPage));
         }
 
         private async Task AddItemAsync() => await AddItemAsync(SearchText);
