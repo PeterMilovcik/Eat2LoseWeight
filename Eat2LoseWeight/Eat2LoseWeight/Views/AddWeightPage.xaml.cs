@@ -10,7 +10,7 @@ namespace Eat2LoseWeight.Views
         public AddWeightPage()
         {
             InitializeComponent();
-            BindingContext = new AddWeightViewModel(Navigation);
+            BindingContext = new AddWeightViewModel();
         }
     }
 }

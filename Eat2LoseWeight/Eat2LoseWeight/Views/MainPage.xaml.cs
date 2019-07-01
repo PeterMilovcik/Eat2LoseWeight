@@ -10,7 +10,7 @@ namespace Eat2LoseWeight.Views
         public MainPage()
         {
             InitializeComponent();
-            ViewModel = new MainViewModel(Navigation);
+            ViewModel = new MainViewModel();
             BindingContext = ViewModel;
         }
 

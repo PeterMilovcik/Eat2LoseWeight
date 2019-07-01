@@ -12,7 +12,7 @@ namespace Eat2LoseWeight.Views
         public MorePage()
         {
             InitializeComponent();
-            ViewModel = new MoreViewModel(Navigation);
+            ViewModel = new MoreViewModel();
             BindingContext = ViewModel;
         }
     }

@@ -1,13 +1,24 @@
 ﻿using Eat2LoseWeight.DataAccess.Entities;
+using Eat2LoseWeight.Views;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Eat2LoseWeight.ViewModels
 {
     public class WeightHistoryViewModel : ViewModel
     {
         private ObservableCollection<WeightRecord> myItems;
+
+        public WeightHistoryViewModel()
+        {
+            EditModeCommand = new Command(
+                async () => await Shell.Current.GoToAsync(
+                    nameof(EditWeightHistoryPage), false));
+        }
+
+        public Command EditModeCommand { get; }
 
         public ObservableCollection<WeightRecord> Items
         {
