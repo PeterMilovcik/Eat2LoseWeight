@@ -14,9 +14,11 @@ namespace Eat2LoseWeight.ViewModels
         private string mySearchText;
         private DateTime myDate;
         private TimeSpan myTime;
-        private ObservableCollection<Item> myDisplayedItems;
+        private ObservableCollection<Model> myDisplayedItems;
         private List<Item> AllItems { get; set; }
+        private List<ItemRecord> AllItemRecords { get; set; }
         private Item mySelectedItem;
+
 
         public AddItemViewModel()
         {
@@ -34,6 +36,7 @@ namespace Eat2LoseWeight.ViewModels
 
         public Command SelectionChangedCommand { get; }
 
+
         public Item SelectedItem
         {
             get => mySelectedItem;
@@ -45,7 +48,7 @@ namespace Eat2LoseWeight.ViewModels
             }
         }
 
-        public ObservableCollection<Item> DisplayedItems
+        public ObservableCollection<Model> DisplayedItems
         {
             get => myDisplayedItems;
             private set
@@ -66,7 +69,8 @@ namespace Eat2LoseWeight.ViewModels
         public async Task LoadAsync()
         {
             AllItems = await App.Database.GetItemsAsync();
-            DisplayedItems = new ObservableCollection<Item>(AllItems);
+            AllItemRecords = await App.Database.GetItemRecordsAsync();
+            DisplayedItems = ToModels(AllItemRecords);
         }
 
         public string SearchText
@@ -104,6 +108,18 @@ namespace Eat2LoseWeight.ViewModels
 
         public Command AddItemCommand { get; }
 
+        private ObservableCollection<Model> ToModels(IEnumerable<ItemRecord> itemRecords) =>
+            new ObservableCollection<Model>(
+                itemRecords
+                    .GroupBy(record => record.ItemId)
+                    .OrderByDescending(g => g.Count())
+                    .Select(g =>
+                    {
+                        var itemId = g.Key;
+                        var name = AllItems.Single(item => item.Id == itemId).Name;
+                        return new Model(itemId, name);
+                    }));
+
         private async Task AddItemAsync(string text)
         {
             if (string.IsNullOrWhiteSpace(text)) return;
@@ -128,7 +144,19 @@ namespace Eat2LoseWeight.ViewModels
 
         public void Search() =>
             DisplayedItems = string.IsNullOrWhiteSpace(SearchText)
-                ? new ObservableCollection<Item>(AllItems)
-                : new ObservableCollection<Item>(AllItems.Where(i => i.Name.Contains(SearchText)));
+                ? ToModels(AllItemRecords)
+                : new ObservableCollection<Model>(ToModels(AllItemRecords).Where(m => m.Name.Contains(SearchText)));
+
+        public class Model
+        {
+            public Model(int id, string name)
+            {
+                Id = id;
+                Name = name;
+            }
+
+            public int Id { get; }
+            public string Name { get; }
+        }
     }
 }
