@@ -85,9 +85,9 @@ namespace Eat2LoseWeight.ViewModels
 
         public Command AddFoodCommand { get; }
 
-        private async Task AddWeight() => await Navigation.PushAsync(new AddWeightPage());
+        private async Task AddWeight() => await Shell.Current.GoToAsync(nameof(AddWeightPage));
 
-        private async Task AddFood() => await Navigation.PushAsync(new AddFoodPage());
+        private async Task AddFood() => await Shell.Current.GoToAsync(nameof(AddFoodPage));
 
         public class Model
         {

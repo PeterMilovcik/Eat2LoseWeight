@@ -1,31 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:fabControl="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
-             x:Class="Eat2LoseWeight.Views.TodayPage"
-             Title="{Binding Title}"
-             BackgroundColor="{StaticResource Secondary}">
+<ContentPage
+    x:Class="Eat2LoseWeight.Views.TodayPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fabControl="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource Secondary}">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Sort" IconImageSource="ic_sort.png" Command="{Binding ToggleSortCommand}" />
+        <ToolbarItem
+            Command="{Binding ToggleSortCommand}"
+            IconImageSource="ic_sort.png"
+            Text="Sort" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <RelativeLayout>
 
-            <CollectionView 
-                ItemsSource="{Binding Items}"
-                RelativeLayout.WidthConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
-                RelativeLayout.HeightConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=0}">
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <CollectionView
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                ItemsSource="{Binding Items}">
                 <CollectionView.EmptyViewTemplate>
                     <DataTemplate>
                         <Label
-                            Text="What have you eat or drink today?"
-                            TextColor="{StaticResource PrimaryDark}"
                             HorizontalOptions="CenterAndExpand"
                             HorizontalTextAlignment="Center"
+                            Text="What have you eat or drink today?"
+                            TextColor="{StaticResource PrimaryDark}"
                             VerticalOptions="CenterAndExpand" />
                     </DataTemplate>
                 </CollectionView.EmptyViewTemplate>
@@ -33,8 +46,13 @@
                     <DataTemplate>
 
                         <Grid>
-                            <Frame HasShadow="True" CornerRadius="3" BackgroundColor="{StaticResource SecondaryDark}"
-                                   BorderColor="{StaticResource Accent}" Margin="15, 3" Padding="15, 6">
+                            <Frame
+                                Margin="15,3"
+                                Padding="15,6"
+                                BackgroundColor="{StaticResource SecondaryDark}"
+                                BorderColor="{StaticResource Accent}"
+                                CornerRadius="3"
+                                HasShadow="True">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
@@ -44,15 +62,22 @@
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
 
-                                    <Label Text="{Binding Name}" Grid.Column="0" 
-                                           TextColor="{StaticResource PrimaryDark}"
-                                           HorizontalTextAlignment="Start" VerticalTextAlignment="End" 
-                                           FontAttributes="Bold" FontSize="Medium" />
+                                    <Label
+                                        Grid.Column="0"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        HorizontalTextAlignment="Start"
+                                        Text="{Binding Name}"
+                                        TextColor="{StaticResource PrimaryDark}"
+                                        VerticalTextAlignment="End" />
 
-                                    <Label Text="{Binding AtFormatted}" Grid.Column="1" 
-                                           TextColor="{StaticResource PrimaryDark}" 
-                                           FontSize="Medium"
-                                           HorizontalTextAlignment="End" VerticalTextAlignment="End" />
+                                    <Label
+                                        Grid.Column="1"
+                                        FontSize="Medium"
+                                        HorizontalTextAlignment="End"
+                                        Text="{Binding AtFormatted}"
+                                        TextColor="{StaticResource PrimaryDark}"
+                                        VerticalTextAlignment="End" />
                                 </Grid>
                             </Frame>
                         </Grid>
@@ -61,28 +86,30 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <fabControl:FloatingActionButtonView 
-                ImageName="ic_accessibility_new.png"
-                ColorNormal="{StaticResource PrimaryDark}"
-                ColorPressed="{StaticResource Primary}"
-                ColorRipple="{StaticResource Primary}"
+            <Button
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="20,20,10,20"
+                BackgroundColor="{StaticResource PrimaryDark}"
                 Command="{Binding AddWeightCommand}"
-                RelativeLayout.XConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-95}"
-                RelativeLayout.YConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-170}" />
+                CornerRadius="20"
+                HeightRequest="40"
+                HorizontalOptions="FillAndExpand"
+                Text="Add Weight"
+                TextColor="{StaticResource Secondary}" />
 
-            <fabControl:FloatingActionButtonView 
-                ImageName="ic_fastfood.png"
-                ColorNormal="{StaticResource PrimaryDark}"
-                ColorPressed="{StaticResource Primary}"
-                ColorRipple="{StaticResource Primary}"
-                Command="{Binding AddFoodCommand}" 
-                RelativeLayout.XConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-95}"
-                RelativeLayout.YConstraint=
-                "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-95}" />
+            <Button
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="10,20,20,20"
+                BackgroundColor="{StaticResource PrimaryDark}"
+                Command="{Binding AddFoodCommand}"
+                CornerRadius="20"
+                HeightRequest="40"
+                HorizontalOptions="FillAndExpand"
+                Text="Add Food"
+                TextColor="{StaticResource Secondary}" />
 
-        </RelativeLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
