@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage 
+<ContentPage
+    x:Class="Eat2LoseWeight.Views.EditWeightHistoryPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Eat2LoseWeight.Views.EditWeightHistoryPage"
     Title="Edit Weight History"
     BackgroundColor="{StaticResource Secondary}">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Ok" IconImageSource="ic_ok.png" Command="{Binding SubmitCommand}" />
+        <ToolbarItem
+            Command="{Binding SubmitCommand}"
+            IconImageSource="ic_ok.png"
+            Text="Ok" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -18,11 +21,15 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <Frame HasShadow="True" CornerRadius="3" BackgroundColor="{StaticResource SecondaryDark}"
-                                       BorderColor="{StaticResource Accent}" Margin="15, 3" Padding="15, 6">
+                            <Frame
+                                Margin="15,3"
+                                Padding="15,6"
+                                BackgroundColor="{StaticResource SecondaryDark}"
+                                BorderColor="{StaticResource Accent}"
+                                CornerRadius="3"
+                                HasShadow="True">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
@@ -30,12 +37,18 @@
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
 
-                                    <Label Text="{Binding MeasuredAt}" Grid.Column="0" 
-                                           TextColor="{StaticResource PrimaryDark}" FontSize="Medium" />
+                                    <Label
+                                        Grid.Column="0"
+                                        FontSize="Medium"
+                                        Text="{Binding MeasuredAt}"
+                                        TextColor="{StaticResource PrimaryDark}" />
 
-                                    <Label Text="{Binding Value}" Grid.Column="1" 
-                                           TextColor="{StaticResource PrimaryDark}"
-                                           FontAttributes="Bold" FontSize="Medium" />
+                                    <Label
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding Value}"
+                                        TextColor="{StaticResource PrimaryDark}" />
 
                                 </Grid>
                             </Frame>
