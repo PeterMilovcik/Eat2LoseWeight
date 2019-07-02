@@ -26,25 +26,26 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
-                FontSize="30"
+                FontSize="55"
                 HorizontalOptions="CenterAndExpand"
                 HorizontalTextAlignment="Center"
                 Keyboard="Numeric"
                 Placeholder="weight"
-                PlaceholderColor="{StaticResource Primary}"
+                PlaceholderColor="{StaticResource Accent}"
                 Text="{Binding Weight}"
-                TextColor="{StaticResource PrimaryDark}"
-                WidthRequest="100" />
+                TextColor="{StaticResource PrimaryDark}" />
 
             <DatePicker
                 Grid.Row="2"
                 Grid.Column="1"
+                Date="{Binding Date}"
                 TextColor="{StaticResource PrimaryDark}" />
 
             <TimePicker
                 Grid.Row="2"
                 Grid.Column="2"
-                TextColor="{StaticResource PrimaryDark}" />
+                TextColor="{StaticResource PrimaryDark}"
+                Time="{Binding Time}" />
 
             <Button
                 Grid.Row="3"
@@ -54,11 +55,10 @@
                 Command="{Binding SubmitCommand}"
                 CornerRadius="20"
                 HeightRequest="40"
-                HorizontalOptions="Center"
+                HorizontalOptions="FillAndExpand"
                 Text="Ok"
                 TextColor="{StaticResource Secondary}"
-                VerticalOptions="Center"
-                WidthRequest="100" />
+                VerticalOptions="Center" />
 
         </Grid>
     </ContentPage.Content>
