@@ -14,7 +14,10 @@ namespace Eat2LoseWeight.ViewModels
         public EditWeightHistoryViewModel()
         {
             SelectionChangedCommand = new Command(async () => await SelectionChangedAsync());
+            SubmitCommand = new Command(async () => await Shell.Current.Navigation.PopAsync(false));
         }
+
+        public Command SubmitCommand { get; }
 
         public Model SelectedItem
         {
