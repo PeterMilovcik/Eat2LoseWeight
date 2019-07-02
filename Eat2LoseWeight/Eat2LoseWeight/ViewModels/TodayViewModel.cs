@@ -9,15 +9,13 @@ namespace Eat2LoseWeight.ViewModels
 {
     public class TodayViewModel : ViewModel
     {
-        private INavigation Navigation { get; }
         private bool CanSortAscending { get; set; }
 
         private ObservableCollection<Model> myItems;
         private string myTitle;
 
-        public TodayViewModel(INavigation navigation)
+        public TodayViewModel()
         {
-            Navigation = navigation;
             ToggleSortCommand = new Command(ToggleSort);
             AddWeightCommand = new Command(async () => await AddWeight());
             AddFoodCommand = new Command(async () => await AddFood());
