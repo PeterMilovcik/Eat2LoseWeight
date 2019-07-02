@@ -5,14 +5,29 @@ using Xamarin.Forms;
 
 namespace Eat2LoseWeight.ViewModels
 {
-    public class AddWeightViewModel : ViewModel
+    public class WeightRecordViewModel : ViewModel
     {
         private string myWeight;
         private DateTime myDate;
         private TimeSpan myTime;
+        protected WeightRecord WeightRecord { get; set; }
 
-        public AddWeightViewModel()
+        public WeightRecordViewModel()
         {
+            WeightRecord = new WeightRecord();
+            var now = DateTime.Now;
+            Date = now.Date;
+            Time = now.TimeOfDay;
+            Weight = null;
+            SubmitCommand = new Command(async () => await SubmitAsync());
+        }
+
+        public WeightRecordViewModel(WeightRecord weightRecord)
+        {
+            WeightRecord = weightRecord;
+            Date = WeightRecord.MeasuredAt.Date;
+            Time = WeightRecord.MeasuredAt.TimeOfDay;
+            Weight = WeightRecord.Value.ToString("F1");
             SubmitCommand = new Command(async () => await SubmitAsync());
         }
 
@@ -49,31 +64,23 @@ namespace Eat2LoseWeight.ViewModels
             }
         }
 
-        public void Initialize()
-        {
-            var now = DateTime.Now;
-            Date = now.Date;
-            Time = now.TimeOfDay;
-        }
-
         public Command SubmitCommand { get; }
 
         private async Task SubmitAsync()
         {
             if (CanSubmit())
             {
-                await SaveToDatabaseAsync(double.Parse(Weight));
+                await SaveToDatabaseAsync();
                 await Shell.Current.Navigation.PopAsync();
             }
         }
 
-        private async Task SaveToDatabaseAsync(double weight) =>
-            await App.Database.SaveWeightRecordAsync(
-                new WeightRecord
-                {
-                    Value = weight,
-                    MeasuredAt = Date.Add(Time)
-                });
+        private async Task SaveToDatabaseAsync()
+        {
+            WeightRecord.Value = double.Parse(Weight);
+            WeightRecord.MeasuredAt = Date.Add(Time);
+            await App.Database.SaveWeightRecordAsync(WeightRecord);
+        }
 
         private bool CanSubmit() => double.TryParse(Weight, out var value) && value > 0;
     }

@@ -19,6 +19,7 @@
 
             <CollectionView
                 ItemsSource="{Binding Items}"
+                SelectedItem="{Binding SelectedItem}"
                 SelectionChangedCommand="{Binding SelectionChangedCommand}"
                 SelectionMode="Single">
                 <CollectionView.ItemTemplate>

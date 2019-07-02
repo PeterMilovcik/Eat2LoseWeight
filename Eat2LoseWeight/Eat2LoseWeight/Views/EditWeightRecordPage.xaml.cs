@@ -5,9 +5,9 @@ using Xamarin.Forms.Xaml;
 namespace Eat2LoseWeight.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddWeightPage : ContentPage
+    public partial class EditWeightRecordPage : ContentPage
     {
-        public AddWeightPage(WeightRecordViewModel viewModel)
+        public EditWeightRecordPage(WeightRecordViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = viewModel;

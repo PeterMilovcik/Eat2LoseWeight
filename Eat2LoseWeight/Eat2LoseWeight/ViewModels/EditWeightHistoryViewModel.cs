@@ -1,4 +1,5 @@
 ﻿using Eat2LoseWeight.DataAccess.Entities;
+using Eat2LoseWeight.Views;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -53,7 +54,14 @@ namespace Eat2LoseWeight.ViewModels
 
         private async Task SelectionChangedAsync()
         {
-
+            if (SelectedItem != null)
+            {
+                await Shell.Current.Navigation.PushAsync(
+                    new EditWeightRecordPage(
+                        new WeightRecordViewModel(
+                            SelectedItem.WeightRecord)));
+                SelectedItem = null;
+            }
         }
 
         public class Model

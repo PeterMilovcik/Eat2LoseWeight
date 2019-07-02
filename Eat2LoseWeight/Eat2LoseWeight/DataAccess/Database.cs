@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Eat2LoseWeight.DataAccess.Entities;
+﻿using Eat2LoseWeight.DataAccess.Entities;
 using SQLite;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Eat2LoseWeight.DataAccess
 {
@@ -21,7 +21,7 @@ namespace Eat2LoseWeight.DataAccess
             Connection.Table<WeightRecord>().ToListAsync();
 
         public Task<int> SaveWeightRecordAsync(WeightRecord weightRecord) =>
-            Connection.InsertAsync(weightRecord);
+            Connection.InsertOrReplaceAsync(weightRecord);
 
         public Task<List<Item>> GetItemsAsync() =>
             Connection.Table<Item>().ToListAsync();
