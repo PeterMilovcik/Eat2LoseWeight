@@ -1,16 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Eat2LoseWeight.Views.AddWeightPage"
-             BackgroundColor="{StaticResource Secondary}"
-             Title="Add weight"
-             Shell.TabBarIsVisible="False">
+<ContentPage
+    x:Class="Eat2LoseWeight.Views.AddWeightPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Add weight"
+    BackgroundColor="{StaticResource Secondary}"
+    Shell.TabBarIsVisible="False">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
+                <RowDefinition Height="1*" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -18,22 +21,45 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Entry 
-                Grid.Row="1" Grid.Column="1"
-                Placeholder="weight" PlaceholderColor="{StaticResource Primary}" 
+
+            <Entry
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                FontSize="30"
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                Keyboard="Numeric"
+                Placeholder="weight"
+                PlaceholderColor="{StaticResource Primary}"
+                Text="{Binding Weight}"
                 TextColor="{StaticResource PrimaryDark}"
-                HorizontalOptions="CenterAndExpand" 
-                HorizontalTextAlignment="Center" 
-                FontSize="Large" Keyboard="Numeric" 
-                Text="{Binding Weight}" />
-            <ImageButton
-                Grid.Row="1" Grid.Column="2"
-                BackgroundColor="{StaticResource Primary}"
-                Source="ic_ok.png"
-                Aspect="AspectFit"
-                HorizontalOptions="Center" VerticalOptions="Center"
-                HeightRequest="40" WidthRequest="40" CornerRadius="20" 
-                Command="{Binding SubmitCommand}" />
+                WidthRequest="100" />
+
+            <DatePicker
+                Grid.Row="2"
+                Grid.Column="1"
+                TextColor="{StaticResource PrimaryDark}" />
+
+            <TimePicker
+                Grid.Row="2"
+                Grid.Column="2"
+                TextColor="{StaticResource PrimaryDark}" />
+
+            <Button
+                Grid.Row="3"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                BackgroundColor="{StaticResource PrimaryDark}"
+                Command="{Binding SubmitCommand}"
+                CornerRadius="20"
+                HeightRequest="40"
+                HorizontalOptions="Center"
+                Text="Ok"
+                TextColor="{StaticResource Secondary}"
+                VerticalOptions="Center"
+                WidthRequest="100" />
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
