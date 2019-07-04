@@ -9,13 +9,15 @@ namespace Eat2LoseWeight.ViewModels
 {
     public class EditWeightHistoryViewModel : ViewModel
     {
-        private ObservableCollection<Model> myItems;
         private Model mySelectedItem;
 
         public EditWeightHistoryViewModel()
         {
-            SelectionChangedCommand = new Command(async () => await SelectionChangedAsync());
-            SubmitCommand = new Command(async () => await Shell.Current.Navigation.PopAsync(false));
+            SelectionChangedCommand = new Command(
+                async () => await SelectionChangedAsync());
+            SubmitCommand = new Command(
+                async () => await Shell.Current.Navigation.PopAsync(false));
+            Items = new ObservableCollection<Model>();
         }
 
         public Command SubmitCommand { get; }
@@ -33,23 +35,15 @@ namespace Eat2LoseWeight.ViewModels
 
         public Command SelectionChangedCommand { get; }
 
-        public ObservableCollection<Model> Items
-        {
-            get => myItems;
-            private set
-            {
-                if (Equals(myItems, value)) return;
-                myItems = value;
-                OnPropertyChanged();
-            }
-        }
+        public ObservableCollection<Model> Items { get; }
 
         public async Task LoadAsync()
         {
             var weightRecords = await App.Database.GetWeightRecordsAsync();
             var orderedWeightRecords = weightRecords.OrderBy(r => r.MeasuredAt);
-            var models = orderedWeightRecords.Select(r => new Model(r));
-            Items = new ObservableCollection<Model>(models);
+            var models = orderedWeightRecords.Select(r => new Model(r, Items)).ToList();
+            Items.Clear();
+            models.ForEach(model => Items.Add(model));
         }
 
         private async Task SelectionChangedAsync()
@@ -66,14 +60,24 @@ namespace Eat2LoseWeight.ViewModels
 
         public class Model
         {
-            public Model(WeightRecord weightRecord)
+            private ObservableCollection<Model> Models { get; }
+
+            public Model(WeightRecord weightRecord, ObservableCollection<Model> models)
             {
                 WeightRecord = weightRecord;
+                Models = models;
+                DeleteCommand = new Command(async () => await DeleteAsync());
             }
 
             public WeightRecord WeightRecord { get; }
 
-            public Command RemoveCommand { get; }
+            public Command DeleteCommand { get; }
+
+            private async Task DeleteAsync()
+            {
+                await App.Database.RemoveWeightAsync(WeightRecord);
+                Models.Remove(this);
+            }
         }
     }
 }

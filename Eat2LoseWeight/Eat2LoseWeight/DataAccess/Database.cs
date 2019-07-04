@@ -37,5 +37,8 @@ namespace Eat2LoseWeight.DataAccess
 
         public Task<int> SaveItemRecordAsync(ItemRecord itemRecord) =>
             Connection.InsertAsync(itemRecord);
+
+        public Task<int> RemoveWeightAsync(WeightRecord weightRecord) =>
+            Connection.DeleteAsync(weightRecord);
     }
 }

@@ -61,6 +61,7 @@
                                         Grid.Column="2"
                                         Margin="1"
                                         BackgroundColor="{StaticResource SecondaryDark}"
+                                        Command="{Binding DeleteCommand}"
                                         HeightRequest="34"
                                         HorizontalOptions="End"
                                         Source="ic_remove.png"
