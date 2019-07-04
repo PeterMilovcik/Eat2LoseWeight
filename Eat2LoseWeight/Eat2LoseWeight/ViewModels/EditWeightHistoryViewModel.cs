@@ -1,4 +1,5 @@
 ﻿using Eat2LoseWeight.DataAccess.Entities;
+using Eat2LoseWeight.Dialogs;
 using Eat2LoseWeight.Views;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -9,10 +10,13 @@ namespace Eat2LoseWeight.ViewModels
 {
     public class EditWeightHistoryViewModel : ViewModel
     {
+        private IConfirmationDialog ConfirmationDialog { get; }
         private Model mySelectedItem;
 
-        public EditWeightHistoryViewModel()
+        public EditWeightHistoryViewModel(
+            IConfirmationDialog confirmationDialog)
         {
+            ConfirmationDialog = confirmationDialog;
             SelectionChangedCommand = new Command(
                 async () => await SelectionChangedAsync());
             SubmitCommand = new Command(
@@ -41,7 +45,8 @@ namespace Eat2LoseWeight.ViewModels
         {
             var weightRecords = await App.Database.GetWeightRecordsAsync();
             var orderedWeightRecords = weightRecords.OrderBy(r => r.MeasuredAt);
-            var models = orderedWeightRecords.Select(r => new Model(r, Items)).ToList();
+            var models = orderedWeightRecords.Select(
+                r => new Model(r, Items, ConfirmationDialog)).ToList();
             Items.Clear();
             models.ForEach(model => Items.Add(model));
         }
@@ -61,11 +66,16 @@ namespace Eat2LoseWeight.ViewModels
         public class Model
         {
             private ObservableCollection<Model> Models { get; }
+            private IConfirmationDialog ConfirmationDialog { get; }
 
-            public Model(WeightRecord weightRecord, ObservableCollection<Model> models)
+            public Model(
+                WeightRecord weightRecord,
+                ObservableCollection<Model> models,
+                IConfirmationDialog confirmationDialog)
             {
                 WeightRecord = weightRecord;
                 Models = models;
+                ConfirmationDialog = confirmationDialog;
                 DeleteCommand = new Command(async () => await DeleteAsync());
             }
 
@@ -75,8 +85,11 @@ namespace Eat2LoseWeight.ViewModels
 
             private async Task DeleteAsync()
             {
-                await App.Database.RemoveWeightAsync(WeightRecord);
-                Models.Remove(this);
+                if (await ConfirmationDialog.ShowDialog())
+                {
+                    await App.Database.RemoveWeightAsync(WeightRecord);
+                    Models.Remove(this);
+                }
             }
         }
     }

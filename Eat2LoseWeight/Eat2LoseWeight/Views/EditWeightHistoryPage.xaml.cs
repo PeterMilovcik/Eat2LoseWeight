@@ -1,4 +1,4 @@
-﻿
+﻿using Eat2LoseWeight.Dialogs;
 using Eat2LoseWeight.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,7 +13,7 @@ namespace Eat2LoseWeight.Views
         public EditWeightHistoryPage()
         {
             InitializeComponent();
-            ViewModel = new EditWeightHistoryViewModel();
+            ViewModel = new EditWeightHistoryViewModel(new ConfirmationDialog(this));
             BindingContext = ViewModel;
         }
 
