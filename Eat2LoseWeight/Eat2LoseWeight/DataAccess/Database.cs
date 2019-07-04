@@ -20,8 +20,11 @@ namespace Eat2LoseWeight.DataAccess
         public Task<List<WeightRecord>> GetWeightRecordsAsync() =>
             Connection.Table<WeightRecord>().ToListAsync();
 
-        public Task<int> SaveWeightRecordAsync(WeightRecord weightRecord) =>
-            Connection.InsertOrReplaceAsync(weightRecord);
+        public Task<int> InsertWeightRecordAsync(WeightRecord weightRecord) =>
+            Connection.InsertAsync(weightRecord);
+
+        public Task<int> UpdateWeightRecordAsync(WeightRecord weightRecord) =>
+            Connection.UpdateAsync(weightRecord);
 
         public Task<List<Item>> GetItemsAsync() =>
             Connection.Table<Item>().ToListAsync();

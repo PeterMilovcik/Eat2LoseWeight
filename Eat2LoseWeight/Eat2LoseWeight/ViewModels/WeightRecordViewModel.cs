@@ -79,7 +79,14 @@ namespace Eat2LoseWeight.ViewModels
         {
             WeightRecord.Value = double.Parse(Weight);
             WeightRecord.MeasuredAt = Date.Add(Time);
-            await App.Database.SaveWeightRecordAsync(WeightRecord);
+            if (WeightRecord.Id == 0)
+            {
+                await App.Database.InsertWeightRecordAsync(WeightRecord);
+            }
+            else
+            {
+                await App.Database.UpdateWeightRecordAsync(WeightRecord);
+            }
         }
 
         private bool CanSubmit() => double.TryParse(Weight, out var value) && value > 0;
