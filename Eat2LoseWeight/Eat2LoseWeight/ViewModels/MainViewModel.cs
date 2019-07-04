@@ -18,7 +18,7 @@ namespace Eat2LoseWeight.ViewModels
             AddWeightCommand = new Command(async () => await AddWeight());
             AddFoodCommand = new Command(async () => await AddFood());
             ToggleSortCommand = new Command(ToggleSort);
-            DistributionStrategy = new ProportionalWeightChangeDistributionStrategy();
+            DistributionStrategy = new UniformWeightChangeDistributionStrategy();
             CanSortAscending = true;
         }
 
@@ -30,8 +30,8 @@ namespace Eat2LoseWeight.ViewModels
 
         private void SortItems() =>
             Items = CanSortAscending
-                ? new ObservableCollection<MealItemViewModel>(Items.OrderBy(i => i.Average))
-                : new ObservableCollection<MealItemViewModel>(Items.OrderByDescending(i => i.Average));
+                ? new ObservableCollection<MealItemViewModel>(Items.OrderBy(i => i.Sum))
+                : new ObservableCollection<MealItemViewModel>(Items.OrderByDescending(i => i.Sum));
 
         public Command ToggleSortCommand { get; }
 
@@ -63,7 +63,7 @@ namespace Eat2LoseWeight.ViewModels
                                 Average = pair.Value.Average(),
                                 Sum = pair.Value.Sum()
                             })
-                        .OrderByDescending(i => i.Average));
+                        .OrderByDescending(i => i.Sum));
             }
         }
 

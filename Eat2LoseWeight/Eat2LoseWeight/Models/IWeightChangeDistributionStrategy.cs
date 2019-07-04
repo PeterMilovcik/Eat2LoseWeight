@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Eat2LoseWeight.DataAccess.Entities;
+﻿using Eat2LoseWeight.DataAccess.Entities;
+using System.Collections.Generic;
 
 namespace Eat2LoseWeight.Models
 {

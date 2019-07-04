@@ -1,11 +1,17 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Eat2LoseWeight.Views.MealItemView">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="Eat2LoseWeight.Views.MealItemView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentView.Content>
         <Grid>
-            <Frame HasShadow="True" CornerRadius="3" BackgroundColor="{StaticResource SecondaryDark}"
-                   BorderColor="{StaticResource Accent}" Margin="15, 3" Padding="15, 6">
+            <Frame
+                Margin="15,3"
+                Padding="15,6"
+                BackgroundColor="{StaticResource SecondaryDark}"
+                BorderColor="{StaticResource Accent}"
+                CornerRadius="3"
+                HasShadow="True">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30" />
@@ -16,18 +22,31 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <Label Text="{Binding Count, StringFormat='{0}x'}" Grid.Column="0" 
-                           TextColor="{StaticResource PrimaryDark}" FontSize="Medium"
-                           HorizontalTextAlignment="Start" VerticalTextAlignment="End" />
+                    <Label
+                        Grid.Column="0"
+                        FontSize="Medium"
+                        HorizontalTextAlignment="Start"
+                        Text="{Binding Count, StringFormat='{0}x'}"
+                        TextColor="{StaticResource PrimaryDark}"
+                        VerticalTextAlignment="End" />
 
-                    <Label Text="{Binding Name}" Grid.Column="1" TextColor="{StaticResource PrimaryDark}"
-                           HorizontalTextAlignment="Start" VerticalTextAlignment="End" 
-                           FontAttributes="Bold" FontSize="Medium" />
+                    <Label
+                        Grid.Column="1"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        HorizontalTextAlignment="Start"
+                        Text="{Binding Name}"
+                        TextColor="{StaticResource PrimaryDark}"
+                        VerticalTextAlignment="End" />
 
-                    <Label Text="{Binding Average, StringFormat='{0:F2}'}" Grid.Column="2" 
-                           TextColor="{StaticResource PrimaryDark}" 
-                           FontAttributes="Bold" FontSize="Medium"
-                           HorizontalTextAlignment="End" VerticalTextAlignment="End" />
+                    <Label
+                        Grid.Column="2"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        HorizontalTextAlignment="End"
+                        Text="{Binding Sum, StringFormat='{0:F2}'}"
+                        TextColor="{StaticResource PrimaryDark}"
+                        VerticalTextAlignment="End" />
                 </Grid>
             </Frame>
         </Grid>
