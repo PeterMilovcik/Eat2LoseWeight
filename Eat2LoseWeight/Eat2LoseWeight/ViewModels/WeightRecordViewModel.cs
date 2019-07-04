@@ -14,7 +14,6 @@ namespace Eat2LoseWeight.ViewModels
 
         public WeightRecordViewModel()
         {
-            WeightRecord = new WeightRecord();
             var now = DateTime.Now;
             Date = now.Date;
             Time = now.TimeOfDay;
@@ -77,9 +76,15 @@ namespace Eat2LoseWeight.ViewModels
 
         private async Task SaveToDatabaseAsync()
         {
+            bool isNew = false;
+            if (WeightRecord == null)
+            {
+                WeightRecord = new WeightRecord();
+                isNew = true;
+            }
             WeightRecord.Value = double.Parse(Weight);
             WeightRecord.MeasuredAt = Date.Add(Time);
-            if (WeightRecord.Id == 0)
+            if (isNew)
             {
                 await App.Database.InsertWeightRecordAsync(WeightRecord);
             }

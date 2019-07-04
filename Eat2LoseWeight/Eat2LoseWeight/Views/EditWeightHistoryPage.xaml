@@ -59,11 +59,13 @@
 
                                     <ImageButton
                                         Grid.Column="2"
-                                        Margin="6,1"
+                                        Margin="1"
                                         BackgroundColor="{StaticResource SecondaryDark}"
+                                        HeightRequest="34"
                                         HorizontalOptions="End"
                                         Source="ic_remove.png"
-                                        VerticalOptions="Center" />
+                                        VerticalOptions="Center"
+                                        WidthRequest="34" />
 
                                 </Grid>
                             </Frame>
