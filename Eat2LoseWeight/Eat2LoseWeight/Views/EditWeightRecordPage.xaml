@@ -4,7 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Edit Weight Record"
-    BackgroundColor="{StaticResource Secondary}"
+    BackgroundColor="{DynamicResource BackgroundPageColor}"
     Shell.TabBarIsVisible="False">
 
     <ContentPage.Content>
@@ -32,33 +32,25 @@
                 HorizontalTextAlignment="Center"
                 Keyboard="Numeric"
                 Placeholder="weight"
-                PlaceholderColor="{StaticResource Accent}"
-                Text="{Binding Weight}"
-                TextColor="{StaticResource PrimaryDark}" />
+                Text="{Binding Weight}" />
 
             <DatePicker
                 Grid.Row="2"
                 Grid.Column="1"
-                Date="{Binding Date}"
-                TextColor="{StaticResource PrimaryDark}" />
+                Date="{Binding Date}" />
 
             <TimePicker
                 Grid.Row="2"
                 Grid.Column="2"
-                TextColor="{StaticResource PrimaryDark}"
                 Time="{Binding Time}" />
 
             <Button
                 Grid.Row="3"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
-                BackgroundColor="{StaticResource PrimaryDark}"
                 Command="{Binding SubmitCommand}"
-                CornerRadius="20"
-                HeightRequest="40"
                 HorizontalOptions="FillAndExpand"
                 Text="Ok"
-                TextColor="{StaticResource Secondary}"
                 VerticalOptions="Center" />
 
         </Grid>

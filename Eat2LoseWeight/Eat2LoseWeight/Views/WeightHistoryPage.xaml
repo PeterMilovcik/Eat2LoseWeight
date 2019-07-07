@@ -1,26 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage 
+<ContentPage
+    x:Class="Eat2LoseWeight.Views.WeightHistoryPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:Eat2LoseWeight.ViewModels;assembly=Eat2LoseWeight"
-    x:Class="Eat2LoseWeight.Views.WeightHistoryPage"
     Title="Weight History"
-    BackgroundColor="{StaticResource Secondary}">
+    BackgroundColor="{DynamicResource BackgroundPageColor}"
+    Shell.TabBarIsVisible="False">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Edit" IconImageSource="ic_edit.png" Command="{Binding EditModeCommand}" />
+        <ToolbarItem
+            Command="{Binding EditModeCommand}"
+            IconImageSource="ic_edit.png"
+            Text="Edit" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <StackLayout>
 
-            <CollectionView 
-                ItemsSource="{Binding Items}">
+            <CollectionView ItemsSource="{Binding Items}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <Frame HasShadow="True" CornerRadius="3" BackgroundColor="{StaticResource SecondaryDark}"
-                                   BorderColor="{StaticResource Accent}" Margin="15, 3" Padding="15, 6">
+                            <Frame>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
@@ -30,12 +32,16 @@
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
 
-                                    <Label Text="{Binding MeasuredAt}" Grid.Column="0" 
-                                           TextColor="{StaticResource PrimaryDark}" FontSize="Medium" />
+                                    <Label
+                                        Grid.Column="0"
+                                        FontSize="Medium"
+                                        Text="{Binding MeasuredAt}" />
 
-                                    <Label Text="{Binding Value}" Grid.Column="1" 
-                                           TextColor="{StaticResource PrimaryDark}"
-                                           FontAttributes="Bold" FontSize="Medium" />
+                                    <Label
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding Value}" />
 
                                 </Grid>
                             </Frame>

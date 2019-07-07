@@ -4,13 +4,83 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Application.Resources>
+
         <ResourceDictionary>
-            <Color x:Key="PrimaryDark">#205374</Color>
-            <Color x:Key="Primary">#27A09E</Color>
-            <Color x:Key="Accent">#30CE88</Color>
-            <Color x:Key="SecondaryDark">#7DE393</Color>
-            <Color x:Key="Secondary">#D3F5CE</Color>
+
+            <Color x:Key="LimeLight">#48CFAD</Color>
+            <Color x:Key="LimeDark">#37BC98</Color>
+
+            <Color x:Key="AquaLight">#4FC1E9</Color>
+            <Color x:Key="AquaDark">#3BAFDA</Color>
+
+            <Color x:Key="BlueJeansLight">#5D9CEC</Color>
+            <Color x:Key="BlueJeansDark">#4A89DC</Color>
+
+            <Color x:Key="LavanderLight">#AC92EC</Color>
+            <Color x:Key="LavanderDark">#967ADC</Color>
+
+            <Color x:Key="LightGrayLight">#F5F7FA</Color>
+            <Color x:Key="LightGrayDark">#E6E9ED</Color>
+            <Color x:Key="MediumGrayLight">#CCD1D9</Color>
+            <Color x:Key="MediumGrayDark">#AAB2BD</Color>
+            <Color x:Key="DarkGrayLight">#656D78</Color>
+            <Color x:Key="DarkGrayDark">#434A54</Color>
+
+            <Color x:Key="FontColor">#434A54</Color>
+            <Color x:Key="BackgroundPageColor">#E6E9ED</Color>
+
         </ResourceDictionary>
+
+        <Style TargetType="CollectionView">
+            <Setter Property="Margin" Value="0,15" />
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="{DynamicResource FontColor}" />
+            <Setter Property="PlaceholderColor" Value="{DynamicResource LimeLight}" />
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="TextColor" Value="{DynamicResource FontColor}" />
+        </Style>
+
+        <Style TargetType="TimePicker">
+            <Setter Property="TextColor" Value="{DynamicResource FontColor}" />
+        </Style>
+
+        <Style TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{DynamicResource LimeLight}" />
+            <Setter Property="BorderColor" Value="{DynamicResource LimeDark}" />
+            <Setter Property="CornerRadius" Value="3" />
+            <Setter Property="HasShadow" Value="True" />
+            <Setter Property="Margin" Value="15,3" />
+            <Setter Property="Padding" Value="15,6" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource FontColor}" />
+        </Style>
+
+        <Style TargetType="TableSection">
+            <Setter Property="TextColor" Value="{DynamicResource LimeDark}" />
+        </Style>
+
+        <Style TargetType="SearchBar">
+            <Setter Property="TextColor" Value="{DynamicResource FontColor}" />
+            <Setter Property="PlaceholderColor" Value="{DynamicResource LimeLight}" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{DynamicResource LimeDark}" />
+            <Setter Property="TextColor" Value="{DynamicResource LightGrayLight}" />
+            <Setter Property="HeightRequest" Value="48" />
+            <Setter Property="CornerRadius" Value="4" />
+        </Style>
+
+        <Style TargetType="ImageButton">
+            <Setter Property="BackgroundColor" Value="{DynamicResource LimeDark}" />
+        </Style>
+
         <Style TargetType="Grid">
             <Setter Property="VisualStateManager.VisualStateGroups">
                 <VisualStateGroupList>
@@ -18,7 +88,7 @@
                         <VisualState x:Name="Normal" />
                         <VisualState x:Name="Selected">
                             <VisualState.Setters>
-                                <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                <Setter Property="BackgroundColor" Value="{StaticResource LimeDark}" />
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>

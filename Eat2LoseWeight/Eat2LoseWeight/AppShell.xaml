@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms"
-       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:eat2LoseWeight="clr-namespace:Eat2LoseWeight;assembly=Eat2LoseWeight"
-       xmlns:views="clr-namespace:Eat2LoseWeight.Views;assembly=Eat2LoseWeight"
-       x:Class="Eat2LoseWeight.AppShell"
-       TitleColor="{DynamicResource Secondary}"
-       ForegroundColor="{DynamicResource Secondary}"
-       BackgroundColor="{DynamicResource Primary}">
+<Shell
+    x:Class="Eat2LoseWeight.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:eat2LoseWeight="clr-namespace:Eat2LoseWeight;assembly=Eat2LoseWeight"
+    xmlns:views="clr-namespace:Eat2LoseWeight.Views;assembly=Eat2LoseWeight"
+    BackgroundColor="{DynamicResource LimeDark}"
+    ForegroundColor="{DynamicResource LightGrayLight}"
+    TabBarUnselectedColor="{DynamicResource DarkGrayDark}"
+    TitleColor="{DynamicResource LightGrayLight}">
 
     <TabBar>
         <Tab Title="Today" Icon="tab_today.png">
@@ -17,11 +19,6 @@
         <Tab Title="Food" Icon="tab_fastfood.png">
             <ShellContent>
                 <views:MainPage />
-            </ShellContent>
-        </Tab>
-        <Tab Title="Summary" Icon="tab_dashboard.png">
-            <ShellContent>
-                <views:SummaryPage />
             </ShellContent>
         </Tab>
         <Tab Title="More" Icon="tab_more.png">

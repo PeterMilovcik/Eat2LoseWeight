@@ -5,13 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentView.Content>
         <Grid>
-            <Frame
-                Margin="15,3"
-                Padding="15,6"
-                BackgroundColor="{StaticResource SecondaryDark}"
-                BorderColor="{StaticResource Accent}"
-                CornerRadius="3"
-                HasShadow="True">
+            <Frame>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30" />
@@ -27,7 +21,6 @@
                         FontSize="Medium"
                         HorizontalTextAlignment="Start"
                         Text="{Binding Count, StringFormat='{0}x'}"
-                        TextColor="{StaticResource PrimaryDark}"
                         VerticalTextAlignment="End" />
 
                     <Label
@@ -36,7 +29,6 @@
                         FontSize="Medium"
                         HorizontalTextAlignment="Start"
                         Text="{Binding Name}"
-                        TextColor="{StaticResource PrimaryDark}"
                         VerticalTextAlignment="End" />
 
                     <Label
@@ -45,7 +37,6 @@
                         FontSize="Medium"
                         HorizontalTextAlignment="End"
                         Text="{Binding Sum, StringFormat='{0:F2}'}"
-                        TextColor="{StaticResource PrimaryDark}"
                         VerticalTextAlignment="End" />
                 </Grid>
             </Frame>

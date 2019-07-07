@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:fabControl="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
     Title="{Binding Title}"
-    BackgroundColor="{StaticResource Secondary}">
+    BackgroundColor="{DynamicResource BackgroundPageColor}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
@@ -38,7 +38,6 @@
                             HorizontalOptions="CenterAndExpand"
                             HorizontalTextAlignment="Center"
                             Text="What have you eat or drink today?"
-                            TextColor="{StaticResource PrimaryDark}"
                             VerticalOptions="CenterAndExpand" />
                     </DataTemplate>
                 </CollectionView.EmptyViewTemplate>
@@ -46,13 +45,7 @@
                     <DataTemplate>
 
                         <Grid>
-                            <Frame
-                                Margin="15,3"
-                                Padding="15,6"
-                                BackgroundColor="{StaticResource SecondaryDark}"
-                                BorderColor="{StaticResource Accent}"
-                                CornerRadius="3"
-                                HasShadow="True">
+                            <Frame>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
@@ -68,7 +61,6 @@
                                         FontSize="Medium"
                                         HorizontalTextAlignment="Start"
                                         Text="{Binding Name}"
-                                        TextColor="{StaticResource PrimaryDark}"
                                         VerticalTextAlignment="End" />
 
                                     <Label
@@ -76,7 +68,6 @@
                                         FontSize="Medium"
                                         HorizontalTextAlignment="End"
                                         Text="{Binding AtFormatted}"
-                                        TextColor="{StaticResource PrimaryDark}"
                                         VerticalTextAlignment="End" />
                                 </Grid>
                             </Frame>
@@ -90,25 +81,17 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 Margin="20,10,10,20"
-                BackgroundColor="{StaticResource PrimaryDark}"
                 Command="{Binding AddWeightCommand}"
-                CornerRadius="20"
-                HeightRequest="40"
                 HorizontalOptions="FillAndExpand"
-                Text="Add Weight"
-                TextColor="{StaticResource Secondary}" />
+                Text="Add Weight" />
 
             <Button
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="10,10,20,20"
-                BackgroundColor="{StaticResource PrimaryDark}"
                 Command="{Binding AddFoodCommand}"
-                CornerRadius="20"
-                HeightRequest="40"
                 HorizontalOptions="FillAndExpand"
-                Text="Add Food"
-                TextColor="{StaticResource Secondary}" />
+                Text="Add Food" />
 
         </Grid>
     </ContentPage.Content>

@@ -1,13 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Eat2LoseWeight.Views.AddFoodPage"
-             BackgroundColor="{StaticResource Secondary}"
-             Title="Add food or drink"
-             Shell.TabBarIsVisible="False">
+<ContentPage
+    x:Class="Eat2LoseWeight.Views.AddFoodPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Add food or drink"
+    BackgroundColor="{DynamicResource BackgroundPageColor}"
+    Shell.TabBarIsVisible="False">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" IconImageSource="ic_ok.png" Command="{Binding AddItemCommand}" />
+        <ToolbarItem
+            Command="{Binding AddItemCommand}"
+            IconImageSource="ic_ok.png"
+            Text="Add" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -21,47 +25,44 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <SearchBar 
-                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+            <SearchBar
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="5"
+                HorizontalOptions="FillAndExpand"
                 Placeholder="Find or add new item"
-                PlaceholderColor="{StaticResource Accent}"
+                SearchCommand="{Binding AddItemCommand}"
                 Text="{Binding SearchText}"
-                TextColor="{StaticResource PrimaryDark}"
-                SearchCommand="{Binding AddItemCommand}" 
-                TextChanged="SearchBar_OnTextChanged"
-                HorizontalOptions="FillAndExpand"
-                Margin="5"/>
-            <DatePicker 
-                Grid.Row="1" Grid.Column="0"
+                TextChanged="SearchBar_OnTextChanged" />
+            <DatePicker
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="8,0"
                 Date="{Binding Date, Mode=TwoWay, UpdateSourceEventName=ValueChanged}"
+                HorizontalOptions="FillAndExpand" />
+            <TimePicker
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="8,0"
                 HorizontalOptions="FillAndExpand"
-                TextColor="{StaticResource PrimaryDark}" 
-                Margin="8, 0" />
-            <TimePicker 
-                Grid.Row="1" Grid.Column="1"
-                Time="{Binding Time, Mode=TwoWay, UpdateSourceEventName=ValueChanged}"
-                HorizontalOptions="FillAndExpand"
-                TextColor="{StaticResource PrimaryDark}" 
-                Margin="8, 0" />
-            <CollectionView 
-                Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                Time="{Binding Time, Mode=TwoWay, UpdateSourceEventName=ValueChanged}" />
+            <CollectionView
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
                 ItemsSource="{Binding DisplayedItems}"
-                SelectionMode="Single"
                 SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                SelectionChangedCommand="{Binding SelectionChangedCommand}">
+                SelectionChangedCommand="{Binding SelectionChangedCommand}"
+                SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <Frame BorderColor="{StaticResource Accent}"
-                                   BackgroundColor="{StaticResource SecondaryDark}"
-                                   CornerRadius="3"
-                                   HasShadow="True"
-                                   Margin="20, 3"
-                                   Padding="8">
-                                <Label Text="{Binding Name}" 
-                                       TextColor="{StaticResource PrimaryDark}"
-                                       Margin="12, 0"
-                                       FontSize="18" />
+                            <Frame>
+                                <Label
+                                    Margin="12,0"
+                                    FontSize="18"
+                                    Text="{Binding Name}" />
                             </Frame>
                         </Grid>
                     </DataTemplate>

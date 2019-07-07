@@ -4,7 +4,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Edit Weight History"
-    BackgroundColor="{StaticResource Secondary}">
+    BackgroundColor="{DynamicResource BackgroundPageColor}"
+    Shell.TabBarIsVisible="False">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
@@ -28,8 +29,6 @@
                             <Frame
                                 Margin="15,3"
                                 Padding="0"
-                                BackgroundColor="{StaticResource SecondaryDark}"
-                                BorderColor="{StaticResource Accent}"
                                 CornerRadius="3"
                                 HasShadow="True">
                                 <Grid>
@@ -46,21 +45,18 @@
                                         Grid.Column="0"
                                         Margin="15,6"
                                         FontSize="Medium"
-                                        Text="{Binding WeightRecord.MeasuredAt}"
-                                        TextColor="{StaticResource PrimaryDark}" />
+                                        Text="{Binding WeightRecord.MeasuredAt}" />
 
                                     <Label
                                         Grid.Column="1"
                                         Margin="15,6"
                                         FontAttributes="Bold"
                                         FontSize="Medium"
-                                        Text="{Binding WeightRecord.Value}"
-                                        TextColor="{StaticResource PrimaryDark}" />
+                                        Text="{Binding WeightRecord.Value}" />
 
                                     <ImageButton
                                         Grid.Column="2"
                                         Margin="1"
-                                        BackgroundColor="{StaticResource SecondaryDark}"
                                         Command="{Binding DeleteCommand}"
                                         HeightRequest="34"
                                         HorizontalOptions="End"
