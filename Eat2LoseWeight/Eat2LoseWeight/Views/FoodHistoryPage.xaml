@@ -19,37 +19,38 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <CollectionView ItemsSource="{Binding Items}">
-                <CollectionView.ItemTemplate>
+            <ListView
+                Margin="0"
+                HasUnevenRows="True"
+                ItemsSource="{Binding Items}"
+                SelectionMode="None"
+                SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <Frame>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
 
-                                    <Label
-                                        Grid.Column="0"
-                                        FontAttributes="Bold"
-                                        FontSize="Medium"
-                                        Text="{Binding Name}" />
+                        <ViewCell>
 
-                                    <Label
-                                        Grid.Column="1"
-                                        FontSize="Medium"
-                                        Text="{Binding At}" />
+                            <StackLayout Margin="15,0" Orientation="Horizontal">
 
-                                </Grid>
-                            </Frame>
-                        </Grid>
+                                <Label
+                                    FontAttributes="Bold"
+                                    HeightRequest="40"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{Binding Name}"
+                                    VerticalTextAlignment="Center" />
+
+                                <Label
+                                    HorizontalOptions="End"
+                                    Text="{Binding At}"
+                                    VerticalTextAlignment="Center" />
+
+                            </StackLayout>
+
+                        </ViewCell>
+
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </StackLayout>
     </ContentPage.Content>
