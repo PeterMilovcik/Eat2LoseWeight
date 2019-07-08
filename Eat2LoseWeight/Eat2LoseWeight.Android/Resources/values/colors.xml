@@ -5,4 +5,6 @@
   <color name="primaryLightColor">#82e9de</color>
   <color name="primaryDarkColor">#00867d</color>
   <color name="primaryTextColor">#000000</color>
+  <color name="ListViewSelected">#4db6ac</color>
+  <color name="ListViewHighlighted">#82e9de</color>
 </resources>

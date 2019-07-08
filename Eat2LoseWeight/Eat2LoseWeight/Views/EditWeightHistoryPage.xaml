@@ -18,24 +18,23 @@
 
         <StackLayout>
 
-            <CollectionView
+            <ListView
                 Margin="0"
+                HasUnevenRows="True"
+                ItemSelected="ListView_OnItemSelected"
                 ItemsSource="{Binding Items}"
                 SelectedItem="{Binding SelectedItem}"
-                SelectionChangedCommand="{Binding SelectionChangedCommand}"
-                SelectionMode="Single">
-                <CollectionView.ItemTemplate>
+                SelectionMode="Single"
+                SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Frame
-                            Margin="2"
-                            Padding="0"
-                            BackgroundColor="{DynamicResource White}"
-                            BorderColor="{DynamicResource White}"
-                            CornerRadius="0"
-                            HasShadow="True">
+
+                        <ViewCell>
+
                             <StackLayout Margin="15,0,0,0" Orientation="Horizontal">
 
                                 <Label
+                                    HeightRequest="40"
                                     HorizontalOptions="StartAndExpand"
                                     Text="{Binding WeightRecord.MeasuredAt}"
                                     VerticalOptions="CenterAndExpand"
@@ -52,17 +51,19 @@
                                     Margin="1"
                                     BackgroundColor="{DynamicResource White}"
                                     Command="{Binding DeleteCommand}"
-                                    HeightRequest="33"
+                                    HeightRequest="36"
                                     HorizontalOptions="End"
                                     Source="ic_close.png"
                                     VerticalOptions="Center"
-                                    WidthRequest="33" />
+                                    WidthRequest="36" />
 
                             </StackLayout>
-                        </Frame>
+
+                        </ViewCell>
+
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </StackLayout>
 

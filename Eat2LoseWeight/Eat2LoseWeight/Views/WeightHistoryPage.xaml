@@ -18,20 +18,21 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <CollectionView Margin="0" ItemsSource="{Binding Items}">
-                <CollectionView.ItemTemplate>
+            <ListView
+                Margin="0"
+                HasUnevenRows="True"
+                ItemsSource="{Binding Items}"
+                SelectionMode="None"
+                SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Frame
-                            Margin="2"
-                            Padding="0"
-                            BackgroundColor="{DynamicResource White}"
-                            BorderColor="{DynamicResource White}"
-                            CornerRadius="0"
-                            HasShadow="True">
+
+                        <ViewCell>
+
                             <StackLayout Margin="15,0" Orientation="Horizontal">
 
                                 <Label
-                                    HeightRequest="35"
+                                    HeightRequest="40"
                                     HorizontalOptions="StartAndExpand"
                                     Text="{Binding MeasuredAt}"
                                     VerticalOptions="CenterAndExpand"
@@ -45,10 +46,12 @@
                                     VerticalTextAlignment="Center" />
 
                             </StackLayout>
-                        </Frame>
+
+                        </ViewCell>
+
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </StackLayout>
     </ContentPage.Content>

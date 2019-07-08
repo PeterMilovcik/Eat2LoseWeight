@@ -22,5 +22,8 @@ namespace Eat2LoseWeight.Views
             base.OnAppearing();
             await ViewModel.LoadAsync();
         }
+
+        private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e) =>
+            ViewModel.SelectionChangedCommand.Execute(null);
     }
 }
