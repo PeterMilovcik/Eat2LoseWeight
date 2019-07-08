@@ -5,10 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:eat2LoseWeight="clr-namespace:Eat2LoseWeight;assembly=Eat2LoseWeight"
     xmlns:views="clr-namespace:Eat2LoseWeight.Views;assembly=Eat2LoseWeight"
-    BackgroundColor="{DynamicResource LimeDark}"
-    ForegroundColor="{DynamicResource LightGrayLight}"
-    TabBarUnselectedColor="{DynamicResource DarkGrayDark}"
-    TitleColor="{DynamicResource LightGrayLight}">
+    BackgroundColor="{DynamicResource Primary}"
+    ForegroundColor="{DynamicResource TextDark}"
+    TabBarUnselectedColor="{DynamicResource White}"
+    TitleColor="{DynamicResource TextDark}">
 
     <TabBar>
         <Tab Title="Today" Icon="tab_today.png">

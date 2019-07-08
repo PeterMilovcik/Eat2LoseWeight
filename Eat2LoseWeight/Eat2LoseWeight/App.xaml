@@ -7,27 +7,18 @@
 
         <ResourceDictionary>
 
-            <Color x:Key="LimeLight">#48CFAD</Color>
-            <Color x:Key="LimeDark">#37BC98</Color>
+            <Color x:Key="White">#F5F5F6</Color>
+            <Color x:Key="Black">#000000</Color>
+            <Color x:Key="Grey">#E1E2E1</Color>
 
-            <Color x:Key="AquaLight">#4FC1E9</Color>
-            <Color x:Key="AquaDark">#3BAFDA</Color>
-
-            <Color x:Key="BlueJeansLight">#5D9CEC</Color>
-            <Color x:Key="BlueJeansDark">#4A89DC</Color>
-
-            <Color x:Key="LavanderLight">#AC92EC</Color>
-            <Color x:Key="LavanderDark">#967ADC</Color>
-
-            <Color x:Key="LightGrayLight">#F5F7FA</Color>
-            <Color x:Key="LightGrayDark">#E6E9ED</Color>
-            <Color x:Key="MediumGrayLight">#CCD1D9</Color>
-            <Color x:Key="MediumGrayDark">#AAB2BD</Color>
-            <Color x:Key="DarkGrayLight">#656D78</Color>
-            <Color x:Key="DarkGrayDark">#434A54</Color>
+            <Color x:Key="Primary">#4db6ac</Color>
+            <Color x:Key="PrimaryLight">#82e9de</Color>
+            <Color x:Key="PrimaryDark">#00867d</Color>
+            <Color x:Key="TextDark">#000000</Color>
+            <Color x:Key="TextLight">#F5F5F6</Color>
 
             <Color x:Key="FontColor">#434A54</Color>
-            <Color x:Key="BackgroundPageColor">#E6E9ED</Color>
+            <Color x:Key="BackgroundPageColor">#FFFFFF</Color>
 
         </ResourceDictionary>
 
@@ -36,21 +27,21 @@
         </Style>
 
         <Style TargetType="Entry">
-            <Setter Property="TextColor" Value="{DynamicResource FontColor}" />
-            <Setter Property="PlaceholderColor" Value="{DynamicResource LimeLight}" />
+            <Setter Property="TextColor" Value="{DynamicResource TextDark}" />
+            <Setter Property="PlaceholderColor" Value="{DynamicResource PrimaryLight}" />
         </Style>
 
         <Style TargetType="DatePicker">
-            <Setter Property="TextColor" Value="{DynamicResource FontColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
         </Style>
 
         <Style TargetType="TimePicker">
-            <Setter Property="TextColor" Value="{DynamicResource FontColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
         </Style>
 
         <Style TargetType="Frame">
-            <Setter Property="BackgroundColor" Value="{DynamicResource LimeLight}" />
-            <Setter Property="BorderColor" Value="{DynamicResource LimeDark}" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource Grey}" />
+            <Setter Property="BorderColor" Value="{DynamicResource PrimaryDark}" />
             <Setter Property="CornerRadius" Value="3" />
             <Setter Property="HasShadow" Value="True" />
             <Setter Property="Margin" Value="15,3" />
@@ -58,27 +49,27 @@
         </Style>
 
         <Style TargetType="Label">
-            <Setter Property="TextColor" Value="{DynamicResource FontColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource TextDark}" />
         </Style>
 
         <Style TargetType="TableSection">
-            <Setter Property="TextColor" Value="{DynamicResource LimeDark}" />
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryDark}" />
         </Style>
 
         <Style TargetType="SearchBar">
-            <Setter Property="TextColor" Value="{DynamicResource FontColor}" />
-            <Setter Property="PlaceholderColor" Value="{DynamicResource LimeLight}" />
+            <Setter Property="TextColor" Value="{DynamicResource TextDark}" />
+            <Setter Property="PlaceholderColor" Value="{DynamicResource PrimaryLight}" />
         </Style>
 
         <Style TargetType="Button">
-            <Setter Property="BackgroundColor" Value="{DynamicResource LimeDark}" />
-            <Setter Property="TextColor" Value="{DynamicResource LightGrayLight}" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource Primary}" />
+            <Setter Property="TextColor" Value="{DynamicResource TextDark}" />
             <Setter Property="HeightRequest" Value="48" />
             <Setter Property="CornerRadius" Value="4" />
         </Style>
 
         <Style TargetType="ImageButton">
-            <Setter Property="BackgroundColor" Value="{DynamicResource LimeDark}" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource Primary}" />
         </Style>
 
         <Style TargetType="Grid">
@@ -88,7 +79,7 @@
                         <VisualState x:Name="Normal" />
                         <VisualState x:Name="Selected">
                             <VisualState.Setters>
-                                <Setter Property="BackgroundColor" Value="{StaticResource LimeDark}" />
+                                <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
