@@ -19,7 +19,6 @@
         <StackLayout>
 
             <ListView
-                Margin="0"
                 HasUnevenRows="True"
                 ItemsSource="{Binding Items}"
                 SelectionMode="None"
@@ -32,14 +31,12 @@
                             <StackLayout Margin="15,0" Orientation="Horizontal">
 
                                 <Label
-                                    HeightRequest="40"
                                     HorizontalOptions="StartAndExpand"
                                     Text="{Binding MeasuredAt}"
                                     VerticalOptions="CenterAndExpand"
                                     VerticalTextAlignment="Center" />
 
                                 <Label
-                                    FontAttributes="Bold"
                                     HorizontalOptions="End"
                                     Text="{Binding Value}"
                                     VerticalOptions="CenterAndExpand"

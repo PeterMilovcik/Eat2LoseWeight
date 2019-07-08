@@ -19,7 +19,6 @@
         <StackLayout>
 
             <ListView
-                Margin="0"
                 HasUnevenRows="True"
                 ItemSelected="ListView_OnItemSelected"
                 ItemsSource="{Binding Items}"
@@ -34,14 +33,12 @@
                             <StackLayout Margin="15,0,0,0" Orientation="Horizontal">
 
                                 <Label
-                                    HeightRequest="40"
                                     HorizontalOptions="StartAndExpand"
                                     Text="{Binding WeightRecord.MeasuredAt}"
                                     VerticalOptions="CenterAndExpand"
                                     VerticalTextAlignment="Center" />
 
                                 <Label
-                                    FontAttributes="Bold"
                                     HorizontalOptions="End"
                                     Text="{Binding WeightRecord.Value}"
                                     VerticalOptions="CenterAndExpand"
@@ -51,11 +48,11 @@
                                     Margin="1"
                                     BackgroundColor="{DynamicResource White}"
                                     Command="{Binding DeleteCommand}"
-                                    HeightRequest="36"
+                                    HeightRequest="48"
                                     HorizontalOptions="End"
                                     Source="ic_close.png"
                                     VerticalOptions="Center"
-                                    WidthRequest="36" />
+                                    WidthRequest="48" />
 
                             </StackLayout>
 

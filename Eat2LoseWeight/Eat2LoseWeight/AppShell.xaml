@@ -6,9 +6,9 @@
     xmlns:eat2LoseWeight="clr-namespace:Eat2LoseWeight;assembly=Eat2LoseWeight"
     xmlns:views="clr-namespace:Eat2LoseWeight.Views;assembly=Eat2LoseWeight"
     BackgroundColor="{DynamicResource Primary}"
-    ForegroundColor="{DynamicResource TextDark}"
-    TabBarUnselectedColor="{DynamicResource White}"
-    TitleColor="{DynamicResource TextDark}">
+    ForegroundColor="{DynamicResource White}"
+    TabBarUnselectedColor="{DynamicResource Black}"
+    TitleColor="{DynamicResource White}">
 
     <TabBar>
         <Tab Title="Today" Icon="tab_today.png">

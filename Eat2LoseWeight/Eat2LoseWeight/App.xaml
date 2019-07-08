@@ -8,16 +8,21 @@
         <ResourceDictionary>
 
             <Color x:Key="White">#F5F5F6</Color>
-            <Color x:Key="Black">#424242</Color>
+            <Color x:Key="Black">#263238</Color>
             <Color x:Key="Grey">#E1E2E1</Color>
 
-            <Color x:Key="Primary">#4db6ac</Color>
-            <Color x:Key="PrimaryLight">#82e9de</Color>
-            <Color x:Key="PrimaryDark">#00867d</Color>
-            <Color x:Key="TextDark">#424242</Color>
+            <Color x:Key="PrimaryDark">#1a746b</Color>
+            <Color x:Key="Primary">#26a69a</Color>
+            <Color x:Key="PrimaryLight">#51b7ae</Color>
+
+            <Color x:Key="SecondaryDark">#357f78</Color>
+            <Color x:Key="Secondary">#4db6ac</Color>
+            <Color x:Key="SecondaryLight">#70c4bc</Color>
+
+            <Color x:Key="TextDark">#263238</Color>
             <Color x:Key="TextLight">#F5F5F6</Color>
 
-            <Color x:Key="FontColor">#424242</Color>
+            <Color x:Key="FontColor">#263238</Color>
             <Color x:Key="BackgroundPageColor">#F5F5F6</Color>
 
         </ResourceDictionary>
@@ -26,9 +31,13 @@
             <Setter Property="Margin" Value="0,15" />
         </Style>
 
+        <Style TargetType="ListView">
+            <Setter Property="Margin" Value="15" />
+        </Style>
+
         <Style TargetType="Entry">
             <Setter Property="TextColor" Value="{DynamicResource TextDark}" />
-            <Setter Property="PlaceholderColor" Value="{DynamicResource PrimaryLight}" />
+            <Setter Property="PlaceholderColor" Value="{DynamicResource SecondaryDark}" />
         </Style>
 
         <Style TargetType="DatePicker">
@@ -50,21 +59,22 @@
 
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource TextDark}" />
-            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="HeightRequest" Value="48" />
         </Style>
 
         <Style TargetType="TableSection">
-            <Setter Property="TextColor" Value="{DynamicResource PrimaryDark}" />
+            <Setter Property="TextColor" Value="{DynamicResource SecondaryDark}" />
         </Style>
 
         <Style TargetType="SearchBar">
             <Setter Property="TextColor" Value="{DynamicResource TextDark}" />
-            <Setter Property="PlaceholderColor" Value="{DynamicResource PrimaryLight}" />
+            <Setter Property="PlaceholderColor" Value="{DynamicResource SecondaryDark}" />
         </Style>
 
         <Style TargetType="Button">
-            <Setter Property="BackgroundColor" Value="{DynamicResource Primary}" />
-            <Setter Property="TextColor" Value="{DynamicResource TextDark}" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource Secondary}" />
+            <Setter Property="TextColor" Value="{DynamicResource Black}" />
             <Setter Property="HeightRequest" Value="48" />
             <Setter Property="CornerRadius" Value="4" />
         </Style>

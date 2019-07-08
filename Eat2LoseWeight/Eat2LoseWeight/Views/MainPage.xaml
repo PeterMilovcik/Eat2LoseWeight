@@ -16,7 +16,6 @@
     <StackLayout>
 
         <ListView
-            Margin="0"
             HasUnevenRows="True"
             ItemsSource="{Binding Items}"
             SelectionMode="None"
@@ -29,24 +28,18 @@
                         <StackLayout Margin="15,0" Orientation="Horizontal">
 
                             <Label
-                                FontSize="Medium"
                                 HorizontalOptions="Start"
                                 HorizontalTextAlignment="Start"
                                 Text="{Binding Count, StringFormat='{0}x'}"
                                 VerticalTextAlignment="Center" />
 
                             <Label
-                                FontAttributes="Bold"
-                                FontSize="Medium"
-                                HeightRequest="40"
                                 HorizontalOptions="StartAndExpand"
                                 HorizontalTextAlignment="Start"
                                 Text="{Binding Name}"
                                 VerticalTextAlignment="Center" />
 
                             <Label
-                                FontAttributes="Bold"
-                                FontSize="Medium"
                                 HorizontalOptions="End"
                                 HorizontalTextAlignment="End"
                                 Text="{Binding Sum, StringFormat='{0:F2}'}"

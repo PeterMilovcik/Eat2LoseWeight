@@ -30,7 +30,6 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-                Margin="0"
                 HasUnevenRows="True"
                 ItemsSource="{Binding Items}"
                 SelectionMode="None"
@@ -43,16 +42,12 @@
                             <StackLayout Margin="15,0" Orientation="Horizontal">
 
                                 <Label
-                                    FontAttributes="Bold"
-                                    FontSize="Medium"
-                                    HeightRequest="40"
                                     HorizontalOptions="StartAndExpand"
                                     HorizontalTextAlignment="Start"
                                     Text="{Binding Name}"
                                     VerticalTextAlignment="Center" />
 
                                 <Label
-                                    FontSize="Medium"
                                     HorizontalOptions="End"
                                     HorizontalTextAlignment="End"
                                     Text="{Binding AtFormatted}"

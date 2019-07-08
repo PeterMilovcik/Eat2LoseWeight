@@ -52,7 +52,6 @@
                 Grid.Row="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-                Margin="0"
                 HasUnevenRows="True"
                 ItemSelected="ListView_OnItemSelected"
                 ItemsSource="{Binding DisplayedItems}"
@@ -67,8 +66,6 @@
                             <StackLayout Margin="15,0" Orientation="Horizontal">
 
                                 <Label
-                                    FontAttributes="Bold"
-                                    HeightRequest="40"
                                     HorizontalOptions="StartAndExpand"
                                     Text="{Binding Name}"
                                     VerticalTextAlignment="Center" />

@@ -31,7 +31,8 @@
                 HorizontalTextAlignment="Center"
                 Keyboard="Numeric"
                 Placeholder="weight"
-                Text="{Binding Weight}" />
+                Text="{Binding Weight}"
+                WidthRequest="120" />
 
             <DatePicker
                 Grid.Row="2"
