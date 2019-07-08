@@ -50,6 +50,7 @@
 
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource TextDark}" />
+            <Setter Property="FontSize" Value="Medium" />
         </Style>
 
         <Style TargetType="TableSection">
