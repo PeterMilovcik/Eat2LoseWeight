@@ -8,17 +8,17 @@
         <ResourceDictionary>
 
             <Color x:Key="White">#F5F5F6</Color>
-            <Color x:Key="Black">#000000</Color>
+            <Color x:Key="Black">#424242</Color>
             <Color x:Key="Grey">#E1E2E1</Color>
 
             <Color x:Key="Primary">#4db6ac</Color>
             <Color x:Key="PrimaryLight">#82e9de</Color>
             <Color x:Key="PrimaryDark">#00867d</Color>
-            <Color x:Key="TextDark">#000000</Color>
+            <Color x:Key="TextDark">#424242</Color>
             <Color x:Key="TextLight">#F5F5F6</Color>
 
-            <Color x:Key="FontColor">#434A54</Color>
-            <Color x:Key="BackgroundPageColor">#FFFFFF</Color>
+            <Color x:Key="FontColor">#424242</Color>
+            <Color x:Key="BackgroundPageColor">#F5F5F6</Color>
 
         </ResourceDictionary>
 
