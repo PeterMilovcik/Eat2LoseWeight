@@ -19,9 +19,11 @@
                     TextColor="{DynamicResource FontColor}" />
             </TableSection>
 
+            <!--
             <TableSection Title="Units">
                 <TextCell Text="Kilogram (kg)" TextColor="{DynamicResource FontColor}" />
             </TableSection>
+            -->
 
         </TableView>
     </ContentPage.Content>
