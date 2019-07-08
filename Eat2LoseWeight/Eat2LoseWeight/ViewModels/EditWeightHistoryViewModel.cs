@@ -1,6 +1,7 @@
 ﻿using Eat2LoseWeight.DataAccess.Entities;
 using Eat2LoseWeight.Dialogs;
 using Eat2LoseWeight.Views;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -43,12 +44,19 @@ namespace Eat2LoseWeight.ViewModels
 
         public async Task LoadAsync()
         {
-            var weightRecords = await App.Database.GetWeightRecordsAsync();
-            var orderedWeightRecords = weightRecords.OrderBy(r => r.MeasuredAt);
-            var models = orderedWeightRecords.Select(
-                r => new Model(r, Items, ConfirmationDialog)).ToList();
-            Items.Clear();
-            models.ForEach(model => Items.Add(model));
+            try
+            {
+                var weightRecords = await App.Database.GetWeightRecordsAsync();
+                var orderedWeightRecords = weightRecords.OrderBy(r => r.MeasuredAt);
+                var models = orderedWeightRecords.Select(
+                    r => new Model(r, Items, ConfirmationDialog)).ToList();
+                Items.Clear();
+                models.ForEach(model => Items.Add(model));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
 
         private async Task SelectionChangedAsync()

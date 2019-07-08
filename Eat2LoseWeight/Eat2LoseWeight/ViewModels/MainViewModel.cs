@@ -1,5 +1,6 @@
 ﻿using Eat2LoseWeight.Models;
 using Eat2LoseWeight.Views;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -37,33 +38,40 @@ namespace Eat2LoseWeight.ViewModels
 
         public async Task LoadAsync()
         {
-            var weightRecords = await App.Database.GetWeightRecordsAsync();
-            var count = weightRecords.Count();
-            if (count > 1)
+            try
             {
-                weightRecords = weightRecords.OrderBy(wr => wr.MeasuredAt).ToList();
-                var itemRecords = await App.Database.GetItemRecordsAsync();
-                var distribution = new WeightChangeDistribution();
-                for (int i = 0; i < count - 1; i++)
+                var weightRecords = await App.Database.GetWeightRecordsAsync();
+                var count = weightRecords.Count();
+                if (count > 1)
                 {
-                    var record1 = weightRecords[i];
-                    var record2 = weightRecords[i + 1];
-                    var weightSpan = new WeightSpan(record1, record2);
-                    var spanItemRecords = itemRecords.Where(ir => ir.At > weightSpan.From && ir.At <= weightSpan.To);
-                    distribution.Add(DistributionStrategy.Distribute(weightSpan, spanItemRecords.ToList()));
+                    weightRecords = weightRecords.OrderBy(wr => wr.MeasuredAt).ToList();
+                    var itemRecords = await App.Database.GetItemRecordsAsync();
+                    var distribution = new WeightChangeDistribution();
+                    for (int i = 0; i < count - 1; i++)
+                    {
+                        var record1 = weightRecords[i];
+                        var record2 = weightRecords[i + 1];
+                        var weightSpan = new WeightSpan(record1, record2);
+                        var spanItemRecords = itemRecords.Where(ir => ir.At > weightSpan.From && ir.At <= weightSpan.To);
+                        distribution.Add(DistributionStrategy.Distribute(weightSpan, spanItemRecords.ToList()));
+                    }
+                    var items = await App.Database.GetItemsAsync();
+                    Items = new ObservableCollection<MealItemViewModel>(
+                        distribution.Select(pair =>
+                                new MealItemViewModel
+                                {
+                                    Id = pair.Key,
+                                    Name = items.Single(i => i.Id == pair.Key).Name,
+                                    Count = pair.Value.Count,
+                                    Average = pair.Value.Average(),
+                                    Sum = pair.Value.Sum()
+                                })
+                            .OrderByDescending(i => i.Sum));
                 }
-                var items = await App.Database.GetItemsAsync();
-                Items = new ObservableCollection<MealItemViewModel>(
-                    distribution.Select(pair =>
-                            new MealItemViewModel
-                            {
-                                Id = pair.Key,
-                                Name = items.Single(i => i.Id == pair.Key).Name,
-                                Count = pair.Value.Count,
-                                Average = pair.Value.Average(),
-                                Sum = pair.Value.Sum()
-                            })
-                        .OrderByDescending(i => i.Sum));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
             }
         }
 

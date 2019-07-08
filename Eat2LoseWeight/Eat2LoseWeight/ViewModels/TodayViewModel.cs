@@ -60,23 +60,30 @@ namespace Eat2LoseWeight.ViewModels
 
         public async Task LoadAsync()
         {
-            var weightRecords = await App.Database.GetWeightRecordsAsync();
-            var weightRecord = weightRecords.LastOrDefault(r => r.MeasuredAt.Date == DateTime.Now.Date);
-            if (weightRecord != null)
+            try
             {
-                Title = $"Today {weightRecord.Value}";
-            }
-
-            var itemRecords = await App.Database.GetItemRecordsAsync();
-            var todayRecords = itemRecords.Where(ir => ir.At.Date == DateTime.Now.Date).ToList();
-            var items = await App.Database.GetItemsAsync();
-            var models = todayRecords.Select(
-                record =>
+                var weightRecords = await App.Database.GetWeightRecordsAsync();
+                var weightRecord = weightRecords.LastOrDefault(r => r.MeasuredAt.Date == DateTime.Now.Date);
+                if (weightRecord != null)
                 {
-                    var name = items.Single(item => item.Id == record.ItemId).Name;
-                    return new Model(record.Id, name, record.At);
-                }).OrderBy(m => m.At);
-            Items = new ObservableCollection<Model>(models);
+                    Title = $"Today {weightRecord.Value}";
+                }
+
+                var itemRecords = await App.Database.GetItemRecordsAsync();
+                var todayRecords = itemRecords.Where(ir => ir.At.Date == DateTime.Now.Date).ToList();
+                var items = await App.Database.GetItemsAsync();
+                var models = todayRecords.Select(
+                    record =>
+                    {
+                        var name = items.Single(item => item.Id == record.ItemId).Name;
+                        return new Model(record.Id, name, record.At);
+                    }).OrderBy(m => m.At);
+                Items = new ObservableCollection<Model>(models);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
 
         public Command AddWeightCommand { get; }

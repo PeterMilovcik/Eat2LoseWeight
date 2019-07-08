@@ -22,15 +22,22 @@ namespace Eat2LoseWeight.ViewModels
 
         public async Task LoadAsync()
         {
-            var itemRecords = await App.Database.GetItemRecordsAsync();
-            var orderedItemRecords = itemRecords.OrderBy(r => r.At);
-            var items = await App.Database.GetItemsAsync();
-            Items = new ObservableCollection<Model>(
-                orderedItemRecords.Select(r =>
-                {
-                    var name = items.Single(i => i.Id == r.ItemId).Name;
-                    return new Model(r.Id, name, r.At);
-                }));
+            try
+            {
+                var itemRecords = await App.Database.GetItemRecordsAsync();
+                var orderedItemRecords = itemRecords.OrderBy(r => r.At);
+                var items = await App.Database.GetItemsAsync();
+                Items = new ObservableCollection<Model>(
+                    orderedItemRecords.Select(r =>
+                    {
+                        var name = items.Single(i => i.Id == r.ItemId).Name;
+                        return new Model(r.Id, name, r.At);
+                    }));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
 
         public class Model

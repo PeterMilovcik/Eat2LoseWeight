@@ -67,9 +67,16 @@ namespace Eat2LoseWeight.ViewModels
 
         public async Task LoadAsync()
         {
-            AllItems = await App.Database.GetItemsAsync();
-            AllItemRecords = await App.Database.GetItemRecordsAsync();
-            DisplayedItems = ToModels(AllItemRecords);
+            try
+            {
+                AllItems = await App.Database.GetItemsAsync();
+                AllItemRecords = await App.Database.GetItemRecordsAsync();
+                DisplayedItems = ToModels(AllItemRecords);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
 
         public string SearchText

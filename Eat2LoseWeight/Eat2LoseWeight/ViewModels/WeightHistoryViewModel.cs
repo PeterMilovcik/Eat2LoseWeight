@@ -1,5 +1,6 @@
 ﻿using Eat2LoseWeight.DataAccess.Entities;
 using Eat2LoseWeight.Views;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,9 +34,16 @@ namespace Eat2LoseWeight.ViewModels
 
         public async Task LoadAsync()
         {
-            var weightRecords = await App.Database.GetWeightRecordsAsync();
-            var orderedWeightRecords = weightRecords.OrderBy(r => r.MeasuredAt);
-            Items = new ObservableCollection<WeightRecord>(orderedWeightRecords);
+            try
+            {
+                var weightRecords = await App.Database.GetWeightRecordsAsync();
+                var orderedWeightRecords = weightRecords.OrderBy(r => r.MeasuredAt);
+                Items = new ObservableCollection<WeightRecord>(orderedWeightRecords);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
     }
 }
