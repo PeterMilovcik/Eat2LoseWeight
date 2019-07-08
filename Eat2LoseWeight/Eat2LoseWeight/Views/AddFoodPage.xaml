@@ -47,27 +47,40 @@
                 Margin="8,0"
                 HorizontalOptions="FillAndExpand"
                 Time="{Binding Time, Mode=TwoWay, UpdateSourceEventName=ValueChanged}" />
-            <CollectionView
+
+            <ListView
                 Grid.Row="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
+                Margin="0"
+                HasUnevenRows="True"
+                ItemSelected="ListView_OnItemSelected"
                 ItemsSource="{Binding DisplayedItems}"
                 SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                SelectionChangedCommand="{Binding SelectionChangedCommand}"
-                SelectionMode="Single">
-                <CollectionView.ItemTemplate>
+                SelectionMode="Single"
+                SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <Frame>
+
+                        <ViewCell>
+
+                            <StackLayout Margin="15,0" Orientation="Horizontal">
+
                                 <Label
-                                    Margin="12,0"
-                                    FontSize="18"
-                                    Text="{Binding Name}" />
-                            </Frame>
-                        </Grid>
+                                    FontAttributes="Bold"
+                                    HeightRequest="40"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{Binding Name}"
+                                    VerticalTextAlignment="Center" />
+
+                            </StackLayout>
+
+                        </ViewCell>
+
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -25,5 +25,8 @@ namespace Eat2LoseWeight.Views
 
         private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e) =>
             ViewModel.Search();
+
+        private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e) =>
+            ViewModel.SelectionChangedCommand.Execute(null);
     }
 }

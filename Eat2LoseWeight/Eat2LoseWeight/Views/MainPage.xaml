@@ -3,7 +3,6 @@
     x:Class="Eat2LoseWeight.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:views="clr-namespace:Eat2LoseWeight.Views;assembly=Eat2LoseWeight"
     Title="Food"
     BackgroundColor="{DynamicResource BackgroundPageColor}">
 
@@ -16,13 +15,50 @@
 
     <StackLayout>
 
-        <CollectionView ItemsSource="{Binding Items}">
-            <CollectionView.ItemTemplate>
+        <ListView
+            Margin="0"
+            HasUnevenRows="True"
+            ItemsSource="{Binding Items}"
+            SelectionMode="None"
+            SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
                 <DataTemplate>
-                    <views:MealItemView />
+
+                    <ViewCell>
+
+                        <StackLayout Margin="15,0" Orientation="Horizontal">
+
+                            <Label
+                                FontSize="Medium"
+                                HorizontalOptions="Start"
+                                HorizontalTextAlignment="Start"
+                                Text="{Binding Count, StringFormat='{0}x'}"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                HeightRequest="40"
+                                HorizontalOptions="StartAndExpand"
+                                HorizontalTextAlignment="Start"
+                                Text="{Binding Name}"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                HorizontalOptions="End"
+                                HorizontalTextAlignment="End"
+                                Text="{Binding Sum, StringFormat='{0:F2}'}"
+                                VerticalTextAlignment="Center" />
+
+                        </StackLayout>
+
+                    </ViewCell>
+
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            </ListView.ItemTemplate>
+        </ListView>
 
     </StackLayout>
 
