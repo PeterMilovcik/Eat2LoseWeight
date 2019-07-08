@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" package="com.adronius.Eat2LoseWeight" android:installLocation="auto" android:versionCode="16">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" package="com.adronius.Eat2LoseWeight" android:installLocation="auto" android:versionCode="17">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
 	<application android:label="Eat 2 Lose Weight"></application>
 </manifest>
