@@ -32,7 +32,7 @@
                 Keyboard="Numeric"
                 Placeholder="weight"
                 Text="{Binding Weight}"
-                WidthRequest="120" />
+                WidthRequest="170" />
 
             <DatePicker
                 Grid.Row="2"

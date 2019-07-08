@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Eat2LoseWeight.Views.LoseWeightFoodPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Food"
+    BackgroundColor="{StaticResource BackgroundPageColor}">
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <ListView
+                HasUnevenRows="True"
+                ItemsSource="{Binding Items}"
+                SelectionMode="None"
+                SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+
+                            <StackLayout Margin="15,0" Orientation="Horizontal">
+
+                                <Label
+                                    HorizontalOptions="Start"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{Binding Count, StringFormat='{0}x'}"
+                                    VerticalTextAlignment="Center" />
+
+                                <Label
+                                    HorizontalOptions="StartAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{Binding Name}"
+                                    VerticalTextAlignment="Center" />
+
+                                <Label
+                                    HorizontalOptions="End"
+                                    HorizontalTextAlignment="End"
+                                    Text="{Binding Sum, StringFormat='{0:F2}'}"
+                                    VerticalTextAlignment="Center" />
+
+                            </StackLayout>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

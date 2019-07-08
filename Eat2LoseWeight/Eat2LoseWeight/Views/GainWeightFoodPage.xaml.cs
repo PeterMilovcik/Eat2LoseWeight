@@ -1,23 +1,24 @@
 ﻿using Eat2LoseWeight.ViewModels;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Eat2LoseWeight.Views
 {
-    public partial class MainPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class GainWeightFoodPage : ContentPage
     {
-        private MainViewModel ViewModel { get; }
+        private WeightFoodViewModel ViewModel { get; }
 
-        public MainPage()
+        public GainWeightFoodPage()
         {
             InitializeComponent();
-            ViewModel = new MainViewModel();
+            ViewModel = new GainWeightFoodViewModel();
             BindingContext = ViewModel;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            // await ViewModel.CheckInitialWeightAsync();
             await ViewModel.LoadAsync();
         }
     }

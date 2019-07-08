@@ -73,8 +73,8 @@
         </Style>
 
         <Style TargetType="Button">
-            <Setter Property="BackgroundColor" Value="{DynamicResource Secondary}" />
-            <Setter Property="TextColor" Value="{DynamicResource Black}" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource Primary}" />
+            <Setter Property="TextColor" Value="{DynamicResource White}" />
             <Setter Property="HeightRequest" Value="48" />
             <Setter Property="CornerRadius" Value="4" />
         </Style>

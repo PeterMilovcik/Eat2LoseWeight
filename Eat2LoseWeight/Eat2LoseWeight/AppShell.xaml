@@ -17,9 +17,8 @@
             </ShellContent>
         </Tab>
         <Tab Title="Food" Icon="tab_fastfood.png">
-            <ShellContent>
-                <views:MainPage />
-            </ShellContent>
+            <ShellContent Title="Lose Weight" ContentTemplate="{x:DataTemplate views:LoseWeightFoodPage}" />
+            <ShellContent Title="Gain Weight" ContentTemplate="{x:DataTemplate views:GainWeightFoodPage}" />
         </Tab>
         <Tab Title="More" Icon="tab_more.png">
             <ShellContent>

@@ -1,17 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Eat2LoseWeight.Views.MainPage"
+    x:Class="Eat2LoseWeight.Views.GainWeightFoodPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Food"
     BackgroundColor="{DynamicResource BackgroundPageColor}">
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem
-            Command="{Binding ToggleSortCommand}"
-            IconImageSource="ic_sort.png"
-            Text="Sort" />
-    </ContentPage.ToolbarItems>
 
     <StackLayout>
 
