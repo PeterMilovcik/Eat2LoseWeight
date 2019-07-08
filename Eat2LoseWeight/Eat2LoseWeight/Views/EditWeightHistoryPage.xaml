@@ -19,54 +19,47 @@
         <StackLayout>
 
             <CollectionView
+                Margin="0"
                 ItemsSource="{Binding Items}"
                 SelectedItem="{Binding SelectedItem}"
                 SelectionChangedCommand="{Binding SelectionChangedCommand}"
                 SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <Frame
-                                Margin="15,3"
-                                Padding="0"
-                                CornerRadius="3"
-                                HasShadow="True">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
+                        <Frame
+                            Margin="2"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource White}"
+                            BorderColor="{DynamicResource White}"
+                            CornerRadius="0"
+                            HasShadow="True">
+                            <StackLayout Margin="15,0,0,0" Orientation="Horizontal">
 
-                                    <Label
-                                        Grid.Column="0"
-                                        Margin="15,6"
-                                        FontSize="Medium"
-                                        Text="{Binding WeightRecord.MeasuredAt}" />
+                                <Label
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{Binding WeightRecord.MeasuredAt}"
+                                    VerticalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center" />
 
-                                    <Label
-                                        Grid.Column="1"
-                                        Margin="15,6"
-                                        FontAttributes="Bold"
-                                        FontSize="Medium"
-                                        Text="{Binding WeightRecord.Value}" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="End"
+                                    Text="{Binding WeightRecord.Value}"
+                                    VerticalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center" />
 
-                                    <ImageButton
-                                        Grid.Column="2"
-                                        Margin="1"
-                                        Command="{Binding DeleteCommand}"
-                                        HeightRequest="34"
-                                        HorizontalOptions="End"
-                                        Source="ic_remove.png"
-                                        VerticalOptions="Center"
-                                        WidthRequest="34" />
+                                <ImageButton
+                                    Margin="1"
+                                    BackgroundColor="{DynamicResource White}"
+                                    Command="{Binding DeleteCommand}"
+                                    HeightRequest="33"
+                                    HorizontalOptions="End"
+                                    Source="ic_close.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="33" />
 
-                                </Grid>
-                            </Frame>
-                        </Grid>
+                            </StackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

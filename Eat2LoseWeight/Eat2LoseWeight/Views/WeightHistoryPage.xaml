@@ -18,34 +18,34 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <CollectionView ItemsSource="{Binding Items}">
+            <CollectionView Margin="0" ItemsSource="{Binding Items}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <Frame>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
+                        <Frame
+                            Margin="2"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource White}"
+                            BorderColor="{DynamicResource White}"
+                            CornerRadius="0"
+                            HasShadow="True">
+                            <StackLayout Margin="15,0" Orientation="Horizontal">
 
-                                    <Label
-                                        Grid.Column="0"
-                                        FontSize="Medium"
-                                        Text="{Binding MeasuredAt}" />
+                                <Label
+                                    HeightRequest="35"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{Binding MeasuredAt}"
+                                    VerticalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center" />
 
-                                    <Label
-                                        Grid.Column="1"
-                                        FontAttributes="Bold"
-                                        FontSize="Medium"
-                                        Text="{Binding Value}" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="End"
+                                    Text="{Binding Value}"
+                                    VerticalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center" />
 
-                                </Grid>
-                            </Frame>
-                        </Grid>
+                            </StackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
