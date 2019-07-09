@@ -25,6 +25,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+
             <SearchBar
                 Grid.Row="0"
                 Grid.Column="0"
@@ -35,12 +36,14 @@
                 SearchCommand="{Binding AddItemCommand}"
                 Text="{Binding SearchText}"
                 TextChanged="SearchBar_OnTextChanged" />
+
             <DatePicker
                 Grid.Row="1"
                 Grid.Column="0"
                 Margin="8,0"
                 Date="{Binding Date, Mode=TwoWay, UpdateSourceEventName=ValueChanged}"
                 HorizontalOptions="FillAndExpand" />
+
             <TimePicker
                 Grid.Row="1"
                 Grid.Column="1"
@@ -63,7 +66,7 @@
 
                         <ViewCell>
 
-                            <StackLayout Margin="15,0" Orientation="Horizontal">
+                            <StackLayout Margin="30,0" Orientation="Horizontal">
 
                                 <Label
                                     HorizontalOptions="StartAndExpand"

@@ -1,5 +1,4 @@
 ﻿using Eat2LoseWeight.DataAccess.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,7 +20,6 @@ namespace Eat2LoseWeight.Models
 
         private bool CanDistribute(WeightSpan weightSpan, IList<ItemRecord> itemRecords) =>
             weightSpan != null &&
-            Math.Abs(weightSpan.Change) > double.Epsilon &&
             itemRecords != null &&
             itemRecords.Any();
     }

@@ -12,18 +12,14 @@
 
     <TabBar>
         <Tab Title="Today" Icon="tab_today.png">
-            <ShellContent>
-                <views:TodayPage />
-            </ShellContent>
+            <ShellContent ContentTemplate="{x:DataTemplate views:TodayPage}" />
         </Tab>
         <Tab Title="Food" Icon="tab_fastfood.png">
             <ShellContent Title="Lose Weight" ContentTemplate="{x:DataTemplate views:LoseWeightFoodPage}" />
             <ShellContent Title="Gain Weight" ContentTemplate="{x:DataTemplate views:GainWeightFoodPage}" />
         </Tab>
         <Tab Title="More" Icon="tab_more.png">
-            <ShellContent>
-                <views:MorePage />
-            </ShellContent>
+            <ShellContent ContentTemplate="{x:DataTemplate views:MorePage}" />
         </Tab>
     </TabBar>
 

@@ -29,7 +29,7 @@
 
                         <ViewCell>
 
-                            <StackLayout Margin="15,0" Orientation="Horizontal">
+                            <StackLayout Margin="30,0" Orientation="Horizontal">
 
                                 <Label
                                     HorizontalOptions="StartAndExpand"
