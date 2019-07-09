@@ -1,15 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="Eat2LoseWeight.Views.EditFoodHistoryPage">
+<ContentPage
+    x:Class="Eat2LoseWeight.Views.EditFoodHistoryPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Edit Food History"
+    BackgroundColor="{DynamicResource BackgroundPageColor}"
+    Shell.TabBarIsVisible="False">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding SubmitCommand}"
+            IconImageSource="ic_ok.png"
+            Text="Ok" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
+
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+            <ListView
+                HasUnevenRows="True"
+                ItemSelected="ListView_OnItemSelected"
+                ItemsSource="{Binding Items}"
+                SelectedItem="{Binding SelectedItem}"
+                SelectionMode="None"
+                SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+
+                            <StackLayout Margin="30,0,0,0" Orientation="Horizontal">
+
+                                <Label
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{Binding Food.Name}"
+                                    VerticalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center" />
+
+                                <Label
+                                    HorizontalOptions="End"
+                                    Text="{Binding FoodRecord.At}"
+                                    VerticalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center" />
+
+                                <ImageButton
+                                    Margin="1"
+                                    BackgroundColor="Transparent"
+                                    Command="{Binding DeleteCommand}"
+                                    HorizontalOptions="End"
+                                    Source="ic_close.png"
+                                    VerticalOptions="Center" />
+
+                            </StackLayout>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

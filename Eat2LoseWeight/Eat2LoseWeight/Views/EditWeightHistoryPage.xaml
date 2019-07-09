@@ -30,7 +30,7 @@
 
                         <ViewCell>
 
-                            <StackLayout Margin="30,0" Orientation="Horizontal">
+                            <StackLayout Margin="30,0,0,0" Orientation="Horizontal">
 
                                 <Label
                                     HorizontalOptions="StartAndExpand"
@@ -46,13 +46,11 @@
 
                                 <ImageButton
                                     Margin="1"
-                                    BackgroundColor="{DynamicResource White}"
+                                    BackgroundColor="Transparent"
                                     Command="{Binding DeleteCommand}"
-                                    HeightRequest="48"
                                     HorizontalOptions="End"
                                     Source="ic_close.png"
-                                    VerticalOptions="Center"
-                                    WidthRequest="48" />
+                                    VerticalOptions="Center" />
 
                             </StackLayout>
 

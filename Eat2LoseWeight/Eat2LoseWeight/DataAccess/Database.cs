@@ -40,5 +40,8 @@ namespace Eat2LoseWeight.DataAccess
 
         public Task<int> RemoveWeightAsync(WeightRecord weightRecord) =>
             Connection.DeleteAsync(weightRecord);
+
+        public Task<int> RemoveFoodRecordAsync(ItemRecord foodRecord) => 
+            Connection.DeleteAsync(foodRecord);
     }
 }

@@ -36,7 +36,7 @@ namespace Eat2LoseWeight.ViewModels
             try
             {
                 var itemRecords = await App.Database.GetItemRecordsAsync();
-                var orderedItemRecords = itemRecords.OrderBy(r => r.At);
+                var orderedItemRecords = itemRecords.OrderByDescending(r => r.At);
                 var items = await App.Database.GetItemsAsync();
                 Items = new ObservableCollection<Model>(
                     orderedItemRecords.Select(r =>
