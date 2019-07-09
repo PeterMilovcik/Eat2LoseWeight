@@ -2,12 +2,23 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Eat2LoseWeight.Views;
+using Xamarin.Forms;
 
 namespace Eat2LoseWeight.ViewModels
 {
     public class FoodHistoryViewModel : ViewModel
     {
         private ObservableCollection<Model> myItems;
+
+        public FoodHistoryViewModel()
+        {
+            EditModeCommand = new Command(
+                async () => await Shell.Current.GoToAsync(
+                    nameof(EditFoodHistoryPage), false));
+        }
+
+        public Command EditModeCommand { get; }
 
         public ObservableCollection<Model> Items
         {

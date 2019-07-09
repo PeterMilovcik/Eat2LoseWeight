@@ -7,14 +7,12 @@
     BackgroundColor="{DynamicResource BackgroundPageColor}"
     Shell.TabBarIsVisible="False">
 
-    <!--
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Command="{Binding EditModeCommand}"
             IconImageSource="ic_edit.png"
             Text="Edit" />
     </ContentPage.ToolbarItems>
-    -->
 
     <ContentPage.Content>
         <StackLayout>

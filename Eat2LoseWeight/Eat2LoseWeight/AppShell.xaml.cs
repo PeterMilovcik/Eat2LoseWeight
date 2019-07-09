@@ -21,6 +21,7 @@ namespace Eat2LoseWeight
             Routing.RegisterRoute(nameof(SummaryPage), typeof(SummaryPage));
             Routing.RegisterRoute(nameof(TodayPage), typeof(TodayPage));
             Routing.RegisterRoute(nameof(FoodHistoryPage), typeof(FoodHistoryPage));
+            Routing.RegisterRoute(nameof(EditFoodHistoryPage), typeof(EditFoodHistoryPage));
             Routing.RegisterRoute(nameof(WeightHistoryPage), typeof(WeightHistoryPage));
             Routing.RegisterRoute(nameof(EditWeightHistoryPage), typeof(EditWeightHistoryPage));
         }
